@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">TFT Helper</string>
+    <string name="itemsButton">Items</string>
+
+
+
+
+
+
+
+
+
+
+
+
+    <string name="bfsword">B.F. Sword</string>
+    <string name="nlRod">Needlessly Large Rod</string>
+    <string name="recurveBow">Recurve Bow</string>
+    <string name="tearGoddess">Tear of the Goddess</string>
+    <string name="chainVest">Chain Vest</string>
+    <string name="negatronCloak">Negatron Cloak</string>
+    <string name="giantsBelt">Giant\'s Belt</string>
+    <string name="spatula">Spatula</string>
+
+    <string name="hextechGunblade">Hextech Gunblade</string>
+    <string name="swordOfDivine">Sword of the Divine</string>
+    <string name="spearOfShojin">Spear of Shojin</string>
+
+
+    <string name="placeholderText">Placeholder Text</string>
+</resources>
