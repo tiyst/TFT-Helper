@@ -4,9 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="clip_horizontal|center|clip_vertical"
     android:background="@drawable/tftw"
     android:scaleType="centerCrop"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/mainactivity_background_image"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/tftw1" />
 
     <LinearLayout
         android:layout_width="395dp"
@@ -23,10 +38,16 @@
 
         <Button
             android:id="@+id/ItemsButton"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_weight="1"
+            android:gravity="clip_horizontal|center|clip_vertical"
+            android:onClick="itemsOnClick"
             android:text="@string/itemsButton"
+            android:textColorHighlight="#8BC34A"
+            android:textColorLink="#3C27B0"
             android:visibility="visible" />
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

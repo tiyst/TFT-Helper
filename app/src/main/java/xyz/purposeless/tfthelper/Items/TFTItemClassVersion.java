@@ -1,20 +1,20 @@
-package xyz.purposeless.tfthelper;
+package xyz.purposeless.tfthelper.Items;
 
 import android.media.Image;
 
 import java.net.URL;
 import java.util.List;
 
-public class TFTItem {
+public class TFTItemClassVersion {
 	//TODO Maybe redo this to enum??
 
 	private Image mImage;
 	private String mItemName;
-	private TFTItem[] mParentItems;
+	private TFTItemClassVersion[] mParentItems;
 	private boolean isCombined;
 
-	public TFTItem(String imgResourceName, String itemName, List<TFTItem> parentItems) {
-		URL imgURL = TFTItem.class.getResource(imgResourceName); //TODO How does this work in Android?
+	public TFTItemClassVersion(String imgResourceName, String itemName, List<TFTItemClassVersion> parentItems) {
+		URL imgURL = TFTItemClassVersion.class.getResource(imgResourceName); //TODO How does this work in Android?
 
 		this.mItemName = itemName;
 

@@ -3,16 +3,9 @@
     <string name="itemsButton">Items</string>
 
 
+    <string name="placeholderText">Placeholder Text</string>
 
-
-
-
-
-
-
-
-
-
+    <!-- Item names-->
     <string name="bfsword">B.F. Sword</string>
     <string name="nlRod">Needlessly Large Rod</string>
     <string name="recurveBow">Recurve Bow</string>
@@ -21,11 +14,88 @@
     <string name="negatronCloak">Negatron Cloak</string>
     <string name="giantsBelt">Giant\'s Belt</string>
     <string name="spatula">Spatula</string>
-
+    <string name="infinityEdge">Infinity Edge</string>
     <string name="hextechGunblade">Hextech Gunblade</string>
     <string name="swordOfDivine">Sword of the Divine</string>
     <string name="spearOfShojin">Spear of Shojin</string>
+    <string name="guardianAngel">Guardian Angel</string>
+    <string name="bloodthirster">Bloodthirster</string>
+    <string name="zekesHerald">Zeke\'s Herald</string>
+    <string name="youmusGhostblade">Youmuu\'s Ghostblade</string>
+    <string name="rabadons">Rabadon\'s Deathcap</string>
+    <string name="guinsooRageblade">Guinsoo\'s Rageblade</string>
+    <string name="ludensEcho">Luden\'s Echo</string>
+    <string name="locketOfSolari">Locket of the Iron Solari</string>
+    <string name="ionicSpark">Ionic Spark</string>
+    <string name="morellonomicon">Morellonomicon</string>
+    <string name="yuumi">Yuumi</string>
+    <string name="rapidfireCannon">Rapidfire Cannon</string>
+    <string name="statikkShiv">Statikk Shiv</string>
+    <string name="phantomDancer">Phantom Dancer</string>
+    <string name="cursedBlade">Cursed Blade</string>
+    <string name="titanicHydra">Titanic Hydra</string>
+    <string name="botrk">Blade of the Ruined King</string>
+    <string name="seraphsEmbrace">Seraphs\'s Embrace</string>
+    <string name="frozenHeart">Frozen Heart</string>
+    <string name="hush">Hush</string>
+    <string name="redemption">Redemption</string>
+    <string name="darkin">Darkin</string>
+    <string name="thornmail">Thornmail</string>
+    <string name="swordbreaker">Swordbreaker</string>
+    <string name="redBuff">Red Buff</string>
+    <string name="knightsVow">Knight\'s Vow</string>
+    <string name="dragonsClaw">Dragon\'s Claw</string>
+    <string name="zephyr">Zephyr</string>
+    <string name="runaansHurricane">Runaan\'s Hurricane</string>
+    <string name="warmogs">Warmog\'s Armor</string>
+    <string name="frozenMallet">Frozen Mallet</string>
+    <string name="forceOfNature">Force of Nature</string>
 
 
-    <string name="placeholderText">Placeholder Text</string>
+    <!-- Item descriptions-->
+    <string name="bfswordDesc">B.F. Sword \n+15 Attack Damage</string>
+    <string name="nlRodDesc">Needlessly Large Rod \n+20% Spell Damage</string>
+    <string name="recurveBowDesc">Recurve Bow \n+15% Attack speed</string>
+    <string name="tearGoddessDesc">Tear of the Goddess \n+20 Starting mana</string>
+    <string name="chainVestDesc">Chain Vest \n+20 Armor</string>
+    <string name="negatronCloakDesc">Negatron Cloak \n+20 Magic Resistance</string>
+    <string name="giantsBeltDesc">Giant\'s Belt \n+200 Health Points</string>
+    <string name="spatulaDesc">It must do something…</string>
+    <string name="infinityEdgeDesc">Critical Strikes deal +100% damage.</string>
+    <string name="hextechGunbladeDesc">Heal for 25% of all damage dealt.</string>
+    <string name="swordOfDivineDesc">Every 1s gain a 5% chance to gain 100% Critical Strike.</string>
+    <string name="spearOfShojinDesc">After casting, gain 15% of max mana per attack.</string>
+    <string name="guardianAngelDesc">Revives champ with 500 HP.</string>
+    <string name="bloodthirsterDesc">Attacks heal for 35% of damage.</string>
+    <string name="zekesHeraldDesc">Adjacent allies gain +10% Attack Speed.</string>
+    <string name="youmuusGhostbladeDesc">Wearer is also an Assassin.</string>
+    <string name="rabadonsDesc">Wearer\'s Ability Damage increased by 50%.</string>
+    <string name="guinsooRagebladeDesc">Attacks give 3% Attack Speed. Stacks infinitely.</string>
+    <string name="ludensEchoDesc">Deal 200 splash damage on ability hit.</string>
+    <string name="locketOfSolariDesc">On start of combat, adjacent allies get 200 shield.</string>
+    <string name="ionicSparkDesc">Whenever an enemy casts a spell they take 200 damage.</string>
+    <string name="morellonomiconDesc">Spells burn 2.5% of the enemy max HP per second.</string>
+    <string name="yuumiDesc">Wearer is also a Sorcerer.</string>
+    <string name="rapidfireCannonDesc">Attacks cannot be dodged. Attack Range is doubled.</string>
+    <string name="statikkShivDesc">Every 3rd attack deals 100 splash magical damage.</string>
+    <string name="phantomDancerDesc">Wearer dodges all Critical Strikes.</string>
+    <string name="cursedBladeDesc">Attacks have a low chance to Shrink (-1 enemy star level 1).</string>
+    <string name="titanicHydraDesc">Attacks deal 10% of the wearer\'s max HP as splash.</string>
+    <string name="botrkDesc">Wearer is also a Blademaster.</string>
+    <string name="seraphsEmbraceDesc">Regain 20 mana each time a spell is cast.</string>
+    <string name="frozenHeartDesc">Adjacent enemies lose 20% Attack Speed.</string>
+    <string name="hushDesc">Attacks have a high chance to Silence.</string>
+    <string name="redemptionDesc">On death heal all nearby allies for 1000 HP.</string>
+    <string name="darkinDesc">Wearer is also a Demon.</string>
+    <string name="thornmailDesc">Reflect 35% of damage taken from attacks.</string>
+    <string name="swordbreakerDesc">Attacks have a chance to disarm.</string>
+    <string name="redBuffDesc">Attacks burn for 2.5% max HP and disable healing.</string>
+    <string name="knightsVowDesc">Wearer is also a Knight.</string>
+    <string name="dragonsClawDesc">83% resistance to magic damage.</string>
+    <string name="zephyrDesc">On start of combat banish an enemy.</string>
+    <string name="runaansHurricaneDesc">Attacks hit additional enemies and deal 50% damage.</string>
+    <string name="warmogsDesc">Regenerate 3% max Health per second.</string>
+    <string name="frozenMalletDesc">Wearer is also a Glacial.</string>
+    <string name="forceOfNatureDesc">Gain +1 team size.</string>
+    <string name="mainactivity_background_image">mainBackgroundContentDesc</string>
 </resources>
