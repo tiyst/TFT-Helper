@@ -1,8 +1,8 @@
 package xyz.purposeless.tfthelper;
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -25,12 +25,14 @@ public class ItemsActivity extends AppCompatActivity implements ItemFragment.TFT
 
 
     public void fillWithItems() {
-        androidx.gridlayout.widget.GridLayout  grid = findViewById(R.id.gridItemChoosingLayout);
+//        androidx.gridlayout.widget.GridLayout  grid = findViewById(R.id.gridItemsChoosingLayout);
+        LinearLayout grid = findViewById(R.id.itemsChoosingLayout);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         for (int i = 0; i < TFTItemEnum.values().length; i++) {
-            fragmentTransaction.add(ItemFragment.newInstance("ay?"),"");
+            fragmentTransaction.add(grid.getId(), ItemFragment.newInstance("ay?"), "fragment" + i);
+            //fragmentTransaction.add(ItemFragment.newInstance("ay?"),"");
             Log.d(TAG, "fillWithItems: " + (i+1));
         }
         fragmentTransaction.commit();
@@ -50,7 +52,8 @@ public class ItemsActivity extends AppCompatActivity implements ItemFragment.TFT
     }
 
     @Override
-    public void onItemInteraction(Uri uri) {
-
+    public void onItemInteraction(TFTItemEnum item) {
+        Log.d(TAG, "Item name: " + item.getItemName() +
+                "\nItem desc: " + item.getItemDescription());
     }
 }

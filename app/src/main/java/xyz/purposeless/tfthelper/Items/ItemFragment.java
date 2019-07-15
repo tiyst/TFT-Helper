@@ -1,8 +1,8 @@
 package xyz.purposeless.tfthelper.Items;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import xyz.purposeless.tfthelper.R;
 
 
+
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
@@ -24,6 +25,7 @@ import xyz.purposeless.tfthelper.R;
  * create an instance of this fragment.
  */
 public class ItemFragment extends Fragment {
+	private static final String TAG = "ItemFragment";
 	private static final String ARG_ITEM = "itemParameter";
 
 	private TFTItemEnum mTftItemClassVersion;
@@ -70,17 +72,22 @@ public class ItemFragment extends Fragment {
 		return inflater.inflate(R.layout.fragment_item, container, false);
 	}
 
+	public void clickedFragmentTest(View view) {
+		Log.d(TAG, "clickedFragmentTest: ");
+	}
+
 	// TODO: Rename method, update argument and hook method into UI event
-	public void onButtonPressed(Uri uri) {
+	public void onButtonPressed(TFTItemEnum item) {
 		if (mListener != null) {
-			mListener.onItemInteraction(uri);
+			mListener.onItemInteraction(item);
 		}
 	}
 
 	@Override
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 		imageView = view.findViewById(R.id.itemFragmentImage);
-		imageView.setImageResource(R.drawable.tftw);
+		imageView.setImageResource(R.drawable.ic_launcher_foreground);
+
 		super.onViewCreated(view, savedInstanceState);
 	}
 
@@ -112,6 +119,6 @@ public class ItemFragment extends Fragment {
 	 * >Communicating with Other Fragments</a> for more information.
 	 */
 	public interface TFTItemListener {
-		void onItemInteraction(Uri uri);
+		void onItemInteraction(TFTItemEnum item);
 	}
 }

@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.gridlayout.widget.GridLayout
-        android:id="@+id/gridItemChoosingLayout"
+        android:id="@+id/gridItemsChoosingLayout"
         android:layout_width="0dp"
         android:layout_height="262dp"
         android:layout_marginStart="16dp"
