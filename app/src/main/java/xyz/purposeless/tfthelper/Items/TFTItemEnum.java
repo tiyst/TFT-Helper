@@ -1,19 +1,22 @@
 package xyz.purposeless.tfthelper.Items;
 
+import android.app.Activity;
+import android.content.Context;
 import android.media.Image;
+import android.widget.ImageView;
 
 import xyz.purposeless.tfthelper.MainActivity;
 import xyz.purposeless.tfthelper.R;
 
 public enum TFTItemEnum {
-	BFSword(null, R.string.bfsword, R.string.bfswordDesc, null),
-	NLRod(null, R.string.nlRod, R.string.nlRodDesc, null),
-	RecurveBow(null, R.string.recurveBow, R.string.recurveBowDesc, null),
-	TearOfGoddess(null, R.string.recurveBow, R.string.recurveBowDesc, null),
-	ChainVest(null, R.string.chainVest, R.string.chainVestDesc, null),
-	NegatronCloak(null, R.string.negatronCloak, R.string.negatronCloakDesc, null),
-	GiantsBelt(null, R.string.giantsBelt, R.string.giantsBeltDesc, null),
-	Spatula(null, R.string.spatula, R.string.spatulaDesc, null);/*,
+	BFSword(R.drawable.item_bfsword, R.string.bfsword, R.string.bfswordDesc, null),
+	NLRod(R.drawable.item_nlrod, R.string.nlRod, R.string.nlRodDesc, null),
+	RecurveBow(R.drawable.item_bow, R.string.recurveBow, R.string.recurveBowDesc, null),
+	TearOfGoddess(R.drawable.item_tear, R.string.recurveBow, R.string.recurveBowDesc, null),
+	ChainVest(R.drawable.item_vest, R.string.chainVest, R.string.chainVestDesc, null),
+	NegatronCloak(R.drawable.item_negatron, R.string.negatronCloak, R.string.negatronCloakDesc, null),
+	GiantsBelt(R.drawable.item_giantsbelt, R.string.giantsBelt, R.string.giantsBeltDesc, null),
+	Spatula(R.drawable.item_spatula, R.string.spatula, R.string.spatulaDesc, null);/*,
 
 	InfinityEdge(null, "mItemName", "itemDesc", new TFTItemEnum[] {BFSword,BFSword}),
 	HextechGunblade(null, "mItemName", "itemDesc", new TFTItemEnum[] {BFSword,NLRod}),
@@ -60,15 +63,18 @@ public enum TFTItemEnum {
 	ForceOfNature(null, "mItemName", "itemDesc", new TFTItemEnum[] {Spatula,Spatula});*/
 
 
-	private Image mItemImage;
+//	private ImageView mItemImage;
+	private int mItemImage;
 	private String mItemName;
 	private String mItemDescription;
 	private TFTItemEnum[] mParentItems;
 	private boolean isCombined;
 
+	private Context context = MainActivity.getContext();
 
-	TFTItemEnum(Image itemImage, int itemNameID, int itemDescID, TFTItemEnum[] mParentItems) {
-		this.mItemImage = itemImage;
+
+	TFTItemEnum(int itemImageID, int itemNameID, int itemDescID, TFTItemEnum[] mParentItems) {
+		this.mItemImage = itemImageID;
 
 		this.mItemName = MainActivity.getContext().getString(itemNameID);//itemName;
 		this.mItemDescription = MainActivity.getContext().getString(itemDescID);//itemDescription;
@@ -79,7 +85,7 @@ public enum TFTItemEnum {
 		}
 	}
 
-	public Image getItemImage() {
+	public int getItemImageID() {
 		return mItemImage;
 	}
 
@@ -98,4 +104,15 @@ public enum TFTItemEnum {
 	public boolean isCombined() {
 		return isCombined;
 	}
+
+	public static TFTItemEnum fromString(String text) {
+		for (TFTItemEnum item : TFTItemEnum.values()) {
+			if (item.getItemName().equals(text)) {
+				return item;
+			}
+		}
+		return null;
+	}
+
+
 }
