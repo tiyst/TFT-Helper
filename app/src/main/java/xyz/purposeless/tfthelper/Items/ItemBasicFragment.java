@@ -66,12 +66,7 @@ public class ItemBasicFragment extends Fragment {
 		return inflater.inflate(R.layout.fragment_item, container, false);
 	}
 
-	public void clickedFragmentTest(View view) {
-		Log.d(TAG, "clickedFragmentTest: ");
-	}
-
-	// TODO: Rename method, update argument and hook method into UI event
-	public void onButtonPressed(TFTItemEnum item) {
+	public void onFragmentPressed(TFTItemEnum item) {
 		if (mListener != null) {
 			mListener.onItemInteraction(item);
 		}
@@ -82,7 +77,12 @@ public class ItemBasicFragment extends Fragment {
 //		Drawable d = getResources().getDrawable(tftItem.getItemImageID());
 		ImageView imageView = view.findViewById(R.id.itemFragmentImage);
 		imageView.setImageResource(tftItem.getItemImageID());
-
+		imageView.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) { //TODO is this a good way to implement this?
+				onFragmentPressed(tftItem);
+			}
+		});
 		super.onViewCreated(view, savedInstanceState);
 	}
 
@@ -103,16 +103,6 @@ public class ItemBasicFragment extends Fragment {
 		mListener = null;
 	}
 
-	/**
-	 * This interface must be implemented by activities that contain this
-	 * fragment to allow an interaction in this fragment to be communicated
-	 * to the activity and potentially other fragments contained in that
-	 * activity.
-	 * <p>
-	 * See the Android Training lesson <a href=
-	 * "http://developer.android.com/training/basics/fragments/communicating.html"
-	 * >Communicating with Other Fragments</a> for more information.
-	 */
 	public interface TFTItemListener {
 		void onItemInteraction(TFTItemEnum item);
 	}

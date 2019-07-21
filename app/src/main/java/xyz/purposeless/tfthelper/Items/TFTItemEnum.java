@@ -1,31 +1,28 @@
 package xyz.purposeless.tfthelper.Items;
 
-import android.app.Activity;
 import android.content.Context;
-import android.media.Image;
-import android.widget.ImageView;
 
 import xyz.purposeless.tfthelper.MainActivity;
 import xyz.purposeless.tfthelper.R;
 
-public enum TFTItemEnum {
-	BFSword(R.drawable.item_bfsword, R.string.bfsword, R.string.bfswordDesc, null),
-	NLRod(R.drawable.item_nlrod, R.string.nlRod, R.string.nlRodDesc, null),
-	RecurveBow(R.drawable.item_bow, R.string.recurveBow, R.string.recurveBowDesc, null),
-	TearOfGoddess(R.drawable.item_tear, R.string.recurveBow, R.string.recurveBowDesc, null),
-	ChainVest(R.drawable.item_vest, R.string.chainVest, R.string.chainVestDesc, null),
-	NegatronCloak(R.drawable.item_negatron, R.string.negatronCloak, R.string.negatronCloakDesc, null),
-	GiantsBelt(R.drawable.item_giantsbelt, R.string.giantsBelt, R.string.giantsBeltDesc, null),
-	Spatula(R.drawable.item_spatula, R.string.spatula, R.string.spatulaDesc, null);/*,
+import static xyz.purposeless.tfthelper.Items.TFTItemBaseEnum.BFSword;
+import static xyz.purposeless.tfthelper.Items.TFTItemBaseEnum.ChainVest;
+import static xyz.purposeless.tfthelper.Items.TFTItemBaseEnum.GiantsBelt;
+import static xyz.purposeless.tfthelper.Items.TFTItemBaseEnum.NLRod;
+import static xyz.purposeless.tfthelper.Items.TFTItemBaseEnum.NegatronCloak;
+import static xyz.purposeless.tfthelper.Items.TFTItemBaseEnum.RecurveBow;
+import static xyz.purposeless.tfthelper.Items.TFTItemBaseEnum.TearOfGoddess;
 
-	InfinityEdge(null, "mItemName", "itemDesc", new TFTItemEnum[] {BFSword,BFSword}),
-	HextechGunblade(null, "mItemName", "itemDesc", new TFTItemEnum[] {BFSword,NLRod}),
-	SwordOfTheDivine(null, "mItemName", "itemDesc", new TFTItemEnum[] {BFSword,RecurveBow}),
-	SpearOfShojin(null, "mItemName", "itemDesc", new TFTItemEnum[] {BFSword,TearOfGoddess}),
-	GuardianAngel(null, "mItemName", "itemDesc", new TFTItemEnum[] {BFSword,ChainVest}),
-	Bloodthirster(null, "mItemName", "itemDesc", new TFTItemEnum[] {BFSword,NegatronCloak}),
-	ZekesHerald(null, "mItemName", "itemDesc", new TFTItemEnum[] {BFSword,GiantsBelt}),
-	YoumuusGhostblade(null, "mItemName", "itemDesc", new TFTItemEnum[] {BFSword,ChainVest}),
+public enum TFTItemEnum {
+
+	InfinityEdge(R.drawable.itemcombined_inifinityedge, R.string.infinityEdge, R.string.infinityEdgeDesc, new TFTItemBaseEnum[] {BFSword,BFSword}),
+	HextechGunblade(R.drawable.itemcombined_hextechgunblade, R.string.hextechGunblade, R.string.hextechGunbladeDesc, new TFTItemBaseEnum[] {BFSword,NLRod}),
+	SwordOfTheDivine(R.drawable.itemcombined_sworddivine, R.string.swordOfDivine, R.string.swordOfDivineDesc, new TFTItemBaseEnum[] {BFSword,RecurveBow}),
+	SpearOfShojin(R.drawable.itemcombined_spearofshojin, R.string.spearOfShojin, R.string.spearOfShojinDesc, new TFTItemBaseEnum[] {BFSword,TearOfGoddess}),
+	GuardianAngel(R.drawable.itemcombined_guardianangel, R.string.guardianAngel, R.string.guardianAngelDesc, new TFTItemBaseEnum[] {BFSword,ChainVest}),
+	Bloodthirster(R.drawable.itemcombined_bloodthirster, R.string.bloodthirster, R.string.bloodthirsterDesc, new TFTItemBaseEnum[] {BFSword,NegatronCloak}),
+	ZekesHerald(R.drawable.itemcombined_zekesherald, R.string.zekesHerald, R.string.zekesHeraldDesc, new TFTItemBaseEnum[] {BFSword,GiantsBelt}),
+	YoumuusGhostblade(R.drawable.itemcombined_youmuus, R.string.youmusGhostblade, R.string.youmuusGhostbladeDesc, new TFTItemBaseEnum[] {BFSword,ChainVest});/*,
 
 	Rabadons(null, "mItemName", "itemDesc", new TFTItemEnum[] {NLRod,NLRod}),
 	GuinsooRageblade(null, "mItemName", "itemDesc", new TFTItemEnum[] {NLRod,RecurveBow}),
@@ -63,21 +60,20 @@ public enum TFTItemEnum {
 	ForceOfNature(null, "mItemName", "itemDesc", new TFTItemEnum[] {Spatula,Spatula});*/
 
 
-//	private ImageView mItemImage;
 	private int mItemImage;
 	private String mItemName;
 	private String mItemDescription;
-	private TFTItemEnum[] mParentItems;
+	private TFTItemBaseEnum[] mParentItems;
 	private boolean isCombined;
 
 	private Context context = MainActivity.getContext();
 
 
-	TFTItemEnum(int itemImageID, int itemNameID, int itemDescID, TFTItemEnum[] mParentItems) {
+	TFTItemEnum(int itemImageID, int itemNameID, int itemDescID, TFTItemBaseEnum[] mParentItems) {
 		this.mItemImage = itemImageID;
 
-		this.mItemName = MainActivity.getContext().getString(itemNameID);//itemName;
-		this.mItemDescription = MainActivity.getContext().getString(itemDescID);//itemDescription;
+		this.mItemName = context.getString(itemNameID);//itemName;
+		this.mItemDescription = context.getString(itemDescID);//itemDescription;
 
 		this.isCombined = (mParentItems != null);
 		if (isCombined) {
@@ -97,7 +93,7 @@ public enum TFTItemEnum {
 		return mItemDescription;
 	}
 
-	public TFTItemEnum[] getParentItems() {
+	public TFTItemBaseEnum[] getParentItems() {
 		return mParentItems;
 	}
 

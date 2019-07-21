@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import xyz.purposeless.tfthelper.Items.ItemBasicFragment;
+import xyz.purposeless.tfthelper.Items.TFTItemBaseEnum;
 import xyz.purposeless.tfthelper.Items.TFTItemEnum;
 
 public class ItemsActivity extends AppCompatActivity implements ItemBasicFragment.TFTItemListener {
@@ -35,10 +36,9 @@ public class ItemsActivity extends AppCompatActivity implements ItemBasicFragmen
 			Log.d(TAG, "fillWithItems: " + (i+1));
 		}*/
 
-		for (TFTItemEnum item: TFTItemEnum.values()) {
+		for (TFTItemBaseEnum item: TFTItemBaseEnum.values()) {
 			fragmentTransaction.add(grid.getId(), ItemBasicFragment.newInstance(item.getItemName()), "fragment" + item.getItemName());
 			Log.d(TAG, "fillWithItems: " + item.getItemName());
-
 		}
 		fragmentTransaction.commit();
 	}

@@ -98,4 +98,6 @@
     <string name="frozenMalletDesc">Wearer is also a Glacial.</string>
     <string name="forceOfNatureDesc">Gain +1 team size.</string>
     <string name="mainactivity_background_image">mainBackgroundContentDesc</string>
+    <string name="itemname">itemName</string>
+    <string name="itemdescription">itemDescription</string>
 </resources>

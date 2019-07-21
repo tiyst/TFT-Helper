@@ -33,14 +33,6 @@ public class ItemCombinedFragment extends Fragment {
 		// Required empty public constructor
 	}
 
-	/**
-	 * Use this factory method to create a new instance of
-	 * this fragment using the provided parameters.
-	 *
-	 * @param param1 Parameter 1.
-	 * @param param2 Parameter 2.
-	 * @return A new instance of fragment ItemCombinedFragment.
-	 */
 	// TODO: Rename and change types and number of parameters
 	public static ItemCombinedFragment newInstance(String param1, String param2) {
 		ItemCombinedFragment fragment = new ItemCombinedFragment();
@@ -56,8 +48,8 @@ public class ItemCombinedFragment extends Fragment {
 		super.onCreate(savedInstanceState);
 		Bundle args = getArguments();
 		if (getArguments() != null) {
-			mItem1 = TFTItemEnum.valueOf(args.getString(ARG_ITEM1));
-			mItem2 = TFTItemEnum.valueOf(args.getString(ARG_ITEM2));
+			mItem1 = TFTItemEnum.fromString(args.getString(ARG_ITEM1));
+			mItem2 = TFTItemEnum.fromString(args.getString(ARG_ITEM2));
 		}
 	}
 
@@ -91,17 +83,6 @@ public class ItemCombinedFragment extends Fragment {
 		super.onDetach();
 		mListener = null;
 	}
-
-	/**
-	 * This interface must be implemented by activities that contain this
-	 * fragment to allow an interaction in this fragment to be communicated
-	 * to the activity and potentially other fragments contained in that
-	 * activity.
-	 * <p>
-	 * See the Android Training lesson <a href=
-	 * "http://developer.android.com/training/basics/fragments/communicating.html"
-	 * >Communicating with Other Fragments</a> for more information.
-	 */
 	public interface CombinedItemInteractionListener {
 		void onCombinedItemTouch(TFTItemEnum item1, TFTItemEnum item2);
 	}
