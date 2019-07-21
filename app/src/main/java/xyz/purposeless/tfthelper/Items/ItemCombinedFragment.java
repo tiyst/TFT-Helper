@@ -6,7 +6,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import xyz.purposeless.tfthelper.R;
@@ -23,8 +27,10 @@ public class ItemCombinedFragment extends Fragment {
 	private static final String ARG_ITEM1 = "item1";
 	private static final String ARG_ITEM2 = "item2";
 
-	private TFTItemEnum mItem1;
-	private TFTItemEnum mItem2;
+	private TFTItemEnum combinedItem;
+
+	private TFTItemBaseEnum mItem1;
+	private TFTItemBaseEnum mItem2;
 
 	private CombinedItemInteractionListener mListener;
 
@@ -51,12 +57,28 @@ public class ItemCombinedFragment extends Fragment {
 	}
 
 	@Override
+	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+		combinedItem = TFTItemEnum.combineBaseItems(mItem1,mItem2);
+		ImageView itemImg = view.findViewById(R.id.combinedItemImage);
+		TextView itemName = view.findViewById(R.id.combinedItemName);
+		TextView itemDesc = view.findViewById(R.id.combinedItemDescription);
+
+		itemImg.setImageResource(combinedItem.getItemImageID());
+		itemName.setText(combinedItem.getItemName());
+		itemDesc.setText(combinedItem.getItemDescription());
+
+		super.onViewCreated(view, savedInstanceState);
+
+
+	}
+
+	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Bundle args = getArguments();
 		if (getArguments() != null) {
-			mItem1 = TFTItemEnum.fromString(args.getString(ARG_ITEM1));
-			mItem2 = TFTItemEnum.fromString(args.getString(ARG_ITEM2));
+			mItem1 = TFTItemBaseEnum.fromString(args.getString(ARG_ITEM1));
+			mItem2 = TFTItemBaseEnum.fromString(args.getString(ARG_ITEM2));
 		}
 	}
 
@@ -91,6 +113,6 @@ public class ItemCombinedFragment extends Fragment {
 		mListener = null;
 	}
 	public interface CombinedItemInteractionListener {
-		void onCombinedItemTouch(TFTItemEnum item1, TFTItemEnum item2);
+		void onCombinedItemTouch(TFTItemBaseEnum item1, TFTItemBaseEnum item2);
 	}
 }

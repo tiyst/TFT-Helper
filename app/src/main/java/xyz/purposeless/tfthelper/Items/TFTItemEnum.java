@@ -33,32 +33,32 @@ public enum TFTItemEnum {
 	Morellonomicon(R.drawable.itemcombined_morello, R.string.morellonomicon, R.string.morellonomiconDesc, new TFTItemBaseEnum[] {NLRod,GiantsBelt}),
 	Yuumi(R.drawable.itemcombined_yuumi, R.string.yuumi, R.string.yuumiDesc, new TFTItemBaseEnum[] {NLRod,Spatula}),
 
-	RapidfireCannon(R.drawable.itemcombined_rapidfirecannon, "mItemName", "itemDesc", new TFTItemBaseEnum[] {RecurveBow,RecurveBow}),
-	StatikkShiv(R.drawable.itemcombined_statikkshiv, "mItemName", "itemDesc", new TFTItemBaseEnum[] {RecurveBow,TearOfGoddess}),
-	PhantomDancer(R.drawable.itemcombined_phantomdancer, "mItemName", "itemDesc", new TFTItemBaseEnum[] {RecurveBow,ChainVest}),
-	CursedBlade(R.drawable.itemcombined_cursedblade, "mItemName", "itemDesc", new TFTItemBaseEnum[] {RecurveBow,NegatronCloak}),
-	TitanicHydra(R.drawable.itemcombined_titanichydra, "mItemName", "itemDesc", new TFTItemBaseEnum[] {RecurveBow,GiantsBelt}),
-	BladeRuinedKing(R.drawable.itemcombined_botrk, "mItemName", "itemDesc", new TFTItemBaseEnum[] {RecurveBow,Spatula}),
+	RapidfireCannon(R.drawable.itemcombined_rapidfirecannon, R.string.rapidfireCannon, R.string.rapidfireCannonDesc, new TFTItemBaseEnum[] {RecurveBow,RecurveBow}),
+	StatikkShiv(R.drawable.itemcombined_statikkshiv, R.string.statikkShiv, R.string.statikkShivDesc, new TFTItemBaseEnum[] {RecurveBow,TearOfGoddess}),
+	PhantomDancer(R.drawable.itemcombined_phantomdancer, R.string.phantomDancer, R.string.phantomDancerDesc, new TFTItemBaseEnum[] {RecurveBow,ChainVest}),
+	CursedBlade(R.drawable.itemcombined_cursedblade, R.string.cursedBlade, R.string.cursedBladeDesc, new TFTItemBaseEnum[] {RecurveBow,NegatronCloak}),
+	TitanicHydra(R.drawable.itemcombined_titanichydra, R.string.titanicHydra, R.string.titanicHydraDesc, new TFTItemBaseEnum[] {RecurveBow,GiantsBelt}),
+	BladeRuinedKing(R.drawable.itemcombined_botrk, R.string.botrk, R.string.botrkDesc, new TFTItemBaseEnum[] {RecurveBow,Spatula}),
 
-	SeraphsEmbrace(null, "mItemName", "itemDesc", new TFTItemBaseEnum[] {TearOfGoddess,TearOfGoddess}),
-	FrozenHeart(null, "mItemName", "itemDesc", new TFTItemBaseEnum[] {TearOfGoddess,ChainVest}),
-	Hush(null, "mItemName", "itemDesc", new TFTItemBaseEnum[] {TearOfGoddess,NegatronCloak}),
-	Redemption(null, "mItemName", "itemDesc", new TFTItemBaseEnum[] {TearOfGoddess,GiantsBelt}),
-	Darkin(null, "mItemName", "itemDesc", new TFTItemBaseEnum[] {TearOfGoddess,Spatula}),
+	SeraphsEmbrace(R.drawable.itemcombined_seraphsembrace, R.string.seraphsEmbrace, R.string.seraphsEmbraceDesc, new TFTItemBaseEnum[] {TearOfGoddess,TearOfGoddess}),
+	FrozenHeart(R.drawable.itemcombined_frozenheart, R.string.frozenHeart, R.string.frozenHeartDesc, new TFTItemBaseEnum[] {TearOfGoddess,ChainVest}),
+	Hush(R.drawable.itemcombined_hush, R.string.hush, R.string.hushDesc, new TFTItemBaseEnum[] {TearOfGoddess,NegatronCloak}),
+	Redemption(R.drawable.itemcombined_redemption, R.string.redemption, R.string.redemptionDesc, new TFTItemBaseEnum[] {TearOfGoddess,GiantsBelt}),
+	Darkin(R.drawable.itemcombined_darkin, R.string.darkin, R.string.darkinDesc, new TFTItemBaseEnum[] {TearOfGoddess,Spatula}),
 
-	Thornmail(null, "mItemName", "itemDesc", new TFTItemBaseEnum[] {ChainVest,RecurveBow}),
-	Swordbreaker(null, "mItemName", "itemDesc", new TFTItemBaseEnum[] {ChainVest,NegatronCloak}),
-	RedBuff(null, "mItemName", "itemDesc", new TFTItemBaseEnum[] {ChainVest,GiantsBelt}),
-	KnightsVow(null, "mItemName", "itemDesc", new TFTItemBaseEnum[] {ChainVest,Spatula}),
+	Thornmail(R.drawable.itemcombined_thornmail, R.string.thornmail, R.string.thornmailDesc, new TFTItemBaseEnum[] {ChainVest,ChainVest}),
+	Swordbreaker(R.drawable.itemcombined_swordbreaker, R.string.swordbreaker, R.string.swordbreakerDesc, new TFTItemBaseEnum[] {ChainVest,NegatronCloak}),
+	RedBuff(R.drawable.itemcombined_redbuff, R.string.redBuff, R.string.redBuffDesc, new TFTItemBaseEnum[] {ChainVest,GiantsBelt}),
+	KnightsVow(R.drawable.itemcombined_knightsvow, R.string.knightsVow, R.string.knightsVowDesc, new TFTItemBaseEnum[] {ChainVest,Spatula}),
 
-	DragonsClaw(null, "mItemName", "itemDesc", new TFTItemBaseEnum[] {NegatronCloak,NegatronCloak}),
-	Zephyr(null, "mItemName", "itemDesc", new TFTItemBaseEnum[] {NegatronCloak,GiantsBelt}),
-	RunaansHurricane(null, "mItemName", "itemDesc", new TFTItemBaseEnum[] {NegatronCloak,Spatula}),
+	DragonsClaw(R.drawable.itemcombined_dragonsclaw, R.string.dragonsClaw, R.string.dragonsClawDesc, new TFTItemBaseEnum[] {NegatronCloak,NegatronCloak}),
+	Zephyr(R.drawable.itemcombined_zephyr, R.string.zephyr, R.string.zephyrDesc, new TFTItemBaseEnum[] {NegatronCloak,GiantsBelt}),
+	RunaansHurricane(R.drawable.itemcombined_runaanshurricane, R.string.runaansHurricane, R.string.runaansHurricaneDesc, new TFTItemBaseEnum[] {NegatronCloak,Spatula}),
 
-	WarmogsArmor(null, "mItemName", "itemDesc", new TFTItemBaseEnum[] {GiantsBelt,GiantsBelt}),
-	FrozenMallet(null, "mItemName", "itemDesc", new TFTItemBaseEnum[] {GiantsBelt,Spatula}),
+	WarmogsArmor(R.drawable.itemcombined_warmogs, R.string.warmogs, R.string.warmogsDesc, new TFTItemBaseEnum[] {GiantsBelt,GiantsBelt}),
+	FrozenMallet(R.drawable.itemcombined_frozenmallet, R.string.frozenMallet, R.string.frozenMalletDesc, new TFTItemBaseEnum[] {GiantsBelt,Spatula}),
 
-	ForceOfNature(null, "mItemName", "itemDesc", new TFTItemBaseEnum[] {Spatula,Spatula});*/
+	ForceOfNature(R.drawable.itemcombined_fon, R.string.forceOfNature, R.string.forceOfNatureDesc, new TFTItemBaseEnum[] {Spatula,Spatula});
 
 	private static final String TAG = "TFTItemEnum";
 
@@ -112,7 +112,7 @@ public enum TFTItemEnum {
 		return null;
 	}
 
-	public static TFTItemEnum combineBaseItems(TFTItemBaseEnum item1, TFTItemBaseEnum item2) throws Exception {
+	public static TFTItemEnum combineBaseItems(TFTItemBaseEnum item1, TFTItemBaseEnum item2) {
 		TFTItemBaseEnum[] placeholderBase;
 		for (TFTItemEnum item : TFTItemEnum.values()) {
 			placeholderBase = item.getBaseItems();
@@ -122,6 +122,7 @@ public enum TFTItemEnum {
 			}
 		}
 		Log.e(TAG, "combineBaseItems: ", new Exception("why have you forsaken me?"));
+		return null;
 	}
 
 }

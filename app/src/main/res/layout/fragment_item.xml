@@ -17,7 +17,7 @@
         android:contentDescription="@string/itemname"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@mipmap/ic_launcher_round" />
+        tools:src="?attr/colorAccent" />
 
     <TextView
         android:id="@+id/itemBaseFragmentName"

@@ -16,16 +16,6 @@ import androidx.fragment.app.Fragment;
 import xyz.purposeless.tfthelper.MainActivity;
 import xyz.purposeless.tfthelper.R;
 
-
-
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link TFTItemListener} interface
- * to handle interaction events.
- * Use the {@link ItemBaseFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class ItemBaseFragment extends Fragment {
 	private static final String TAG = "ItemBaseFragment";
 	private static final String ARG_ITEM = "itemParameter";
