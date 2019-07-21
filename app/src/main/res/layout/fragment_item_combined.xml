@@ -12,7 +12,7 @@
         android:layout_height="100dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:contentDescription="Combined item image"
+        android:contentDescription="@string/combined_item_image"
         android:src="?attr/colorAccent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

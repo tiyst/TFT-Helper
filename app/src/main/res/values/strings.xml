@@ -97,7 +97,11 @@
     <string name="warmogsDesc">Regenerate 3% max Health per second.</string>
     <string name="frozenMalletDesc">Wearer is also a Glacial.</string>
     <string name="forceOfNatureDesc">Gain +1 team size.</string>
+
+
+
     <string name="mainactivity_background_image">mainBackgroundContentDesc</string>
     <string name="itemname">itemName</string>
     <string name="itemdescription">itemDescription</string>
+    <string name="combined_item_image">Combined item fragment image</string>
 </resources>
