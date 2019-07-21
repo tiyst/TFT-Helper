@@ -3,12 +3,11 @@ package xyz.purposeless.tfthelper.Items;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
 
 import xyz.purposeless.tfthelper.R;
 
@@ -33,12 +32,20 @@ public class ItemCombinedFragment extends Fragment {
 		// Required empty public constructor
 	}
 
-	// TODO: Rename and change types and number of parameters
-	public static ItemCombinedFragment newInstance(String param1, String param2) {
+	public static ItemCombinedFragment newInstance(TFTItemBaseEnum item1, TFTItemBaseEnum item2) {
 		ItemCombinedFragment fragment = new ItemCombinedFragment();
 		Bundle args = new Bundle();
-		args.putString(ARG_ITEM1, param1);
-		args.putString(ARG_ITEM2, param2);
+		args.putString(ARG_ITEM1, item1.getItemName());
+		args.putString(ARG_ITEM2, item2.getItemName());
+		fragment.setArguments(args);
+		return fragment;
+	}
+
+	public static ItemCombinedFragment newInstance(TFTItemBaseEnum[] items) {
+		ItemCombinedFragment fragment = new ItemCombinedFragment();
+		Bundle args = new Bundle();
+		args.putString(ARG_ITEM1, items[0].getItemName());
+		args.putString(ARG_ITEM2, items[1].getItemName());
 		fragment.setArguments(args);
 		return fragment;
 	}

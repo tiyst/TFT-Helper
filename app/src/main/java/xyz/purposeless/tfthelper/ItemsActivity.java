@@ -20,12 +20,14 @@ public class ItemsActivity extends AppCompatActivity implements ItemBaseFragment
 
 	private static final String TAG = "ItemsActivity";
 	private static List<TFTItemBaseEnum> inventoryItems;
+	private static List<TFTItemEnum> combinedItems;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_items);
 		inventoryItems = new ArrayList<>();
+		combinedItems = new ArrayList<>();
 		initBaseItems();
 	}
 
@@ -40,6 +42,7 @@ public class ItemsActivity extends AppCompatActivity implements ItemBaseFragment
 			Log.d(TAG, "initBaseItems: " + item.getItemName());
 		}
 		fragmentTransaction.commit();
+		drawPossibleCombinations();
 	}
 
 	@Override
@@ -51,10 +54,39 @@ public class ItemsActivity extends AppCompatActivity implements ItemBaseFragment
 		getSupportFragmentManager().beginTransaction() //adding fragment to inventory holder
 				.add(R.id.itemInventory, ItemBaseFragment.newInstance(item.getItemName()), "Inventory item: " + item.getItemName())
 				.commit();
+		drawPossibleCombinations();
 	}
 
 	@Override
 	public void onCombinedItemTouch(TFTItemEnum item1, TFTItemEnum item2) {
 		//TODO remove used items from inventory
+	}
+
+
+	private void drawPossibleCombinations() {
+		List<TFTItemEnum> items = possibleCombinations();
+
+		for (TFTItemEnum item : items) {
+			if (!combinedItems.contains(item)) {
+				combinedItems.add(item);
+				getSupportFragmentManager().beginTransaction() //adding fragment to inventory holder
+						.add(R.id.itemsResultLayout, ItemCombinedFragment.newInstance(item.getBaseItems()), "Inventory item: " + item.getItemName())
+						.commit();
+			}
+		}
+	}
+	private List<TFTItemEnum> possibleCombinations() {
+		ArrayList<TFTItemEnum> combinedItems = new ArrayList<>();
+		TFTItemEnum resultItem;
+		for (int i = 0; i < inventoryItems.size(); i++) {
+			for (int j = i+1; j < inventoryItems.size(); j++){
+				resultItem = TFTItemEnum.combineBaseItems(inventoryItems.get(i), inventoryItems.get(j));
+				if (resultItem != null) {
+					combinedItems.add(resultItem);
+				}
+			}
+		}
+
+		return combinedItems;
 	}
 }
