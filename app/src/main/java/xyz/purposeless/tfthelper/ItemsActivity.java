@@ -9,7 +9,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import xyz.purposeless.tfthelper.Items.InventoryItemFragment;
 import xyz.purposeless.tfthelper.Items.ItemBaseFragment;
@@ -22,90 +21,151 @@ public class ItemsActivity extends AppCompatActivity implements ItemBaseFragment
 		,InventoryItemFragment.OnInventoryItemInteractionListener {
 
 	private static final String TAG = "ItemsActivity";
-	private static List<TFTItemBaseEnum> inventoryItems;
-	private static List<TFTItemEnum> combinedItems;
+	private ItemController itemController;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_items);
-		inventoryItems = new ArrayList<>();
-		combinedItems = new ArrayList<>();
-		initBaseItems();
+		itemController = new ItemController();
+		drawBaseItems();
 	}
 
-	public void initBaseItems() {
+	public void drawBaseItems() {
 		LinearLayout layout = findViewById(R.id.itemsChoosingLayout);
-
 		FragmentManager fragmentManager = getSupportFragmentManager();
 		FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
 		for (TFTItemBaseEnum item: TFTItemBaseEnum.values()) {
-			fragmentTransaction.add(layout.getId(), ItemBaseFragment.newInstance(item.getItemName()), "fragment" + item.getItemName());
-			Log.d(TAG, "initBaseItems: " + item.getItemName());
+			fragmentTransaction.add(layout.getId(), ItemBaseFragment.newInstance(item.getItemName()));
 		}
 		fragmentTransaction.commitNow();
-		drawPossibleCombinations();
 	}
 
 	@Override
 	public void onBaseItemInteraction(TFTItemBaseEnum item) {
-//		Log.d(TAG, "Item name: " + item.getItemName() +  //debug
-//				"\nItem desc: " + item.getItemDescription());
-
-		inventoryItems.add(item);
-		getSupportFragmentManager().beginTransaction() //TAG
-				.add(R.id.itemInventory, InventoryItemFragment.newInstance(item.getItemName()), item.getItemName())
-				.commitNow();
-		Log.d(TAG, "Base item added: " + item.getItemName());
-		inventoryItems.add(item);
-		drawPossibleCombinations();
+		itemController.addItemToInventory(item);
 	}
 
 	@Override
-	public void onCombinedItemTouch(TFTItemBaseEnum item1, TFTItemBaseEnum item2) {
-		//TODO remove used items from inventory
-	}
-
-	private void drawPossibleCombinations() {
-		List<TFTItemEnum> items = getPossibleItemCombinations();
-
-		for (TFTItemEnum item : items) {
-			if (!combinedItems.contains(item)) {
-				combinedItems.add(item);
-				getSupportFragmentManager().beginTransaction() //adding fragment to inventory holder
-						.add(R.id.itemsResultLayout, ItemCombinedFragment.newInstance(item.getBaseItems()), item.getItemName())
-						.commitNow();
-				Log.d(TAG, "Result item fragment added with tag: " + item.getItemName());
-			}
-		}
-	}
-	private List<TFTItemEnum> getPossibleItemCombinations() {
-		ArrayList<TFTItemEnum> combinedItems = new ArrayList<>();
-		TFTItemEnum resultItem;
-		for (int i = 0; i < inventoryItems.size(); i++) {
-			for (int j = i+1; j < inventoryItems.size(); j++){
-				resultItem = TFTItemEnum.combineBaseItems(inventoryItems.get(i), inventoryItems.get(j));
-				if (resultItem != null) {
-					combinedItems.add(resultItem);
-				}
-			}
-		}
-
-		return combinedItems;
+	public void onCombinedItemInteraction(TFTItemBaseEnum item1, TFTItemBaseEnum item2) {
+		// TODO
 	}
 
 	@Override
 	public void onInventoryItemInteraction(String itemName) {
-		InventoryItemFragment f = (InventoryItemFragment) getSupportFragmentManager().findFragmentByTag(itemName);
-		//Fragment f = getFragmentManager().findFragmentByTag(itemName);
-		FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-		if(f!=null) {
-			inventoryItems.remove(f.getItem());
-			transaction.remove(f);
-		} else {
-			Log.d(TAG, "onInventoryItemInteraction: no inventory item fragment found: " + itemName);
+		itemController.removeItemFromInventory(itemName);
+	}
+
+
+	private class ItemController {
+
+		private ArrayList<TFTItemBaseEnum> inventoryItems;
+		private ArrayList<TFTItemEnum> resultItems;
+
+		ItemController() {
+			inventoryItems = new ArrayList<>();
+			resultItems = new ArrayList<>();
 		}
-		transaction.commit();
+
+		void addItemToInventory(TFTItemBaseEnum item) {
+			ArrayList<TFTItemBaseEnum> previousItems = (ArrayList<TFTItemBaseEnum>) inventoryItems.clone();
+			inventoryItems.add(item);
+			addInventoryFragment(item);
+			processResultItems(previousItems);
+		}
+
+		void removeItemFromInventory(String itemName) {
+			ArrayList<TFTItemBaseEnum> previousItems = (ArrayList<TFTItemBaseEnum>) inventoryItems.clone();
+			TFTItemBaseEnum item = TFTItemBaseEnum.fromString(itemName);
+			inventoryItems.remove(item);
+			removeInventoryFragment(item);
+			processResultItems(previousItems);
+		}
+
+		void processResultItems(ArrayList<TFTItemBaseEnum> previousItems) {
+			ArrayList<TFTItemBaseEnum> currentItems = (ArrayList<TFTItemBaseEnum>) inventoryItems.clone();
+			if (currentItems.size() > previousItems.size()) {
+				currentItems.removeAll(previousItems);
+				if (currentItems.size() == 1) {
+					addCombinedItems(currentItems.get(0));
+				} else {
+					throw new SecurityException(TAG + "More than one item added a.k.a FIX YOUR SHIT");
+				}
+			} else {
+				previousItems.removeAll(currentItems);
+				if (previousItems.size() == 1) {
+					removeCombinedItems(previousItems.get(0));
+				} else {
+					throw new SecurityException(TAG + "More than one item added a.k.a FIX YOUR SHIT");
+				}
+			}
+		}
+
+		void removeCombinedItems(TFTItemBaseEnum removedItem) {
+			ArrayList<TFTItemEnum> toBeRemoved = new ArrayList<>();
+			for (TFTItemEnum item : resultItems) {
+				if (item.isMadeOf(removedItem) && !inventoryItems.contains(removedItem)) {
+					toBeRemoved.add(item);
+				}
+			}
+			for (TFTItemEnum item : toBeRemoved) {
+				removeResultFragment(item);
+			}
+		}
+
+		void addCombinedItems(TFTItemBaseEnum addedItem) {
+			ArrayList<TFTItemEnum> toBeAdded = new ArrayList<>();
+			TFTItemEnum combinedItem;
+			for (TFTItemBaseEnum item : inventoryItems) {
+				combinedItem = TFTItemEnum.combineBaseItems(addedItem,item);
+				if (!resultItems.contains(combinedItem)) {
+					toBeAdded.add(combinedItem);
+				}
+			}
+			for (TFTItemEnum item : toBeAdded) {
+				addResultFragment(item);
+			}
+		}
+
+		private void addResultFragment(TFTItemEnum item) {
+			resultItems.add(item);
+			FragmentTransaction fManager = getSupportFragmentManager().beginTransaction();
+			TFTItemBaseEnum[] baseItems = item.getBaseItems();
+			fManager.add(R.id.itemsResultLayout,
+					ItemCombinedFragment.newInstance(baseItems[0], baseItems[1]),
+					item.getItemName());
+			fManager.commitNow();
+		}
+
+		private void removeResultFragment(TFTItemEnum item) {
+			FragmentTransaction fManager = getSupportFragmentManager().beginTransaction();
+			ItemCombinedFragment f = (ItemCombinedFragment) getSupportFragmentManager().findFragmentByTag(item.getItemName());
+			if(f != null) {
+				resultItems.remove(item);
+				FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+				transaction.remove(f);
+				transaction.commitNow();
+			}
+		}
+
+		private void addInventoryFragment(TFTItemBaseEnum item) {
+			FragmentTransaction fManager = getSupportFragmentManager().beginTransaction();
+			fManager.add(R.id.itemInventory,
+					InventoryItemFragment.newInstance(item.getItemName()),
+					item.getItemName());
+			fManager.commitNow();
+		}
+
+		private void removeInventoryFragment(TFTItemBaseEnum item) {
+			InventoryItemFragment f = (InventoryItemFragment) getSupportFragmentManager().findFragmentByTag(item.getItemName());
+			if(f != null) {
+				FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+				transaction.remove(f);
+				transaction.commitNow();
+			} else {
+				Log.d(TAG, "removeInventoryFragment: SOMETHING'S WRONG!!");
+			}
+		}
 	}
 }

@@ -92,7 +92,7 @@ public class ItemCombinedFragment extends Fragment {
 	// TODO: Rename method, update argument and hook method into UI event
 	public void onButtonPressed(Uri uri) {
 		if (mListener != null) {
-			mListener.onCombinedItemTouch(mItem1, mItem2);
+			mListener.onCombinedItemInteraction(mItem1, mItem2);
 		}
 	}
 
@@ -113,6 +113,6 @@ public class ItemCombinedFragment extends Fragment {
 		mListener = null;
 	}
 	public interface CombinedItemInteractionListener {
-		void onCombinedItemTouch(TFTItemBaseEnum item1, TFTItemBaseEnum item2);
+		void onCombinedItemInteraction(TFTItemBaseEnum item1, TFTItemBaseEnum item2);
 	}
 }

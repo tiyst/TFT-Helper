@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/itemBaseFragmentImage"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="16dp"
@@ -25,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/itemname"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="@+id/itemBaseFragmentImage"
         app:layout_constraintStart_toStartOf="@+id/itemBaseFragmentImage"
         app:layout_constraintTop_toBottomOf="@+id/itemBaseFragmentImage" />

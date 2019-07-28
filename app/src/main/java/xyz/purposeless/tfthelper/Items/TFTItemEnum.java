@@ -125,4 +125,7 @@ public enum TFTItemEnum {
 		return null;
 	}
 
+	public boolean isMadeOf(TFTItemBaseEnum item) {
+		return (this.mBaseItems[0] == item || this.mBaseItems[1] == item);
+	}
 }
