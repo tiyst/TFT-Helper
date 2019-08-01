@@ -67,6 +67,13 @@ public class ItemCombinedFragment extends Fragment {
 		itemName.setText(combinedItem.getItemName());
 		itemDesc.setText(combinedItem.getItemDescription());
 
+		view.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				onCombinedItemInteraction();
+			}
+		});
+
 		super.onViewCreated(view, savedInstanceState);
 
 
@@ -89,8 +96,7 @@ public class ItemCombinedFragment extends Fragment {
 		return inflater.inflate(R.layout.fragment_item_combined, container, false);
 	}
 
-	// TODO: Rename method, update argument and hook method into UI event
-	public void onButtonPressed(Uri uri) {
+	public void onCombinedItemInteraction() {
 		if (mListener != null) {
 			mListener.onCombinedItemInteraction(mItem1, mItem2);
 		}
