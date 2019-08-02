@@ -1,4 +1,4 @@
-package xyz.purposeless.tfthelper.Items;
+package xyz.purposeless.tfthelper.Items.ItemGUI;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import xyz.purposeless.tfthelper.Items.TFTItemBaseEnum;
 import xyz.purposeless.tfthelper.MainActivity;
 import xyz.purposeless.tfthelper.R;
 
@@ -67,12 +68,7 @@ public class ItemBaseFragment extends Fragment {
 			//Setting item image to fragment
 			ImageView imageView = view.findViewById(R.id.itemBaseFragmentImage);
 			imageView.setImageResource(tftItem.getItemImageID());
-			imageView.setOnClickListener(new View.OnClickListener() {
-				@Override
-				public void onClick(View view) { //TODO is this a good way to implement this?
-					onFragmentPressed(tftItem);
-				}
-			});
+			view.setOnClickListener(view1 -> onFragmentPressed(tftItem));
 
 			//Setting item text to fragment
 			TextView itemName = view.findViewById(R.id.itemBaseFragmentName);

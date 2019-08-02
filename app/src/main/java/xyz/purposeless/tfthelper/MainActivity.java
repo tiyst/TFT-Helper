@@ -7,6 +7,8 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import xyz.purposeless.tfthelper.Items.ItemGUI.ItemActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     private static Context mContext;
@@ -19,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	public void itemsOnClick(View view) {
-		startActivity(new Intent(this, ItemsActivity.class));
+		startActivity(new Intent(this, ItemActivity.class));
 	}
 
     public static Context getContext() {

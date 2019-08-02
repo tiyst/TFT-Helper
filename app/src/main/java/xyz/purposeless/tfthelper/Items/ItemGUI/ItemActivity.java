@@ -1,4 +1,4 @@
-package xyz.purposeless.tfthelper;
+package xyz.purposeless.tfthelper.Items.ItemGUI;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -11,17 +11,15 @@ import androidx.fragment.app.FragmentTransaction;
 import java.util.ArrayList;
 
 import xyz.purposeless.tfthelper.Exception.TFTRuntimeException;
-import xyz.purposeless.tfthelper.Items.InventoryItemFragment;
-import xyz.purposeless.tfthelper.Items.ItemBaseFragment;
-import xyz.purposeless.tfthelper.Items.ItemCombinedFragment;
 import xyz.purposeless.tfthelper.Items.TFTItemBaseEnum;
 import xyz.purposeless.tfthelper.Items.TFTItemEnum;
+import xyz.purposeless.tfthelper.R;
 
-public class ItemsActivity extends AppCompatActivity implements ItemBaseFragment.TFTItemListener
+public class ItemActivity extends AppCompatActivity implements ItemBaseFragment.TFTItemListener
 		,ItemCombinedFragment.CombinedItemInteractionListener
 		,InventoryItemFragment.OnInventoryItemInteractionListener {
 
-	private static final String TAG = "ItemsActivity";
+	private static final String TAG = "ItemActivity";
 	private ItemController itemController;
 
 	@Override

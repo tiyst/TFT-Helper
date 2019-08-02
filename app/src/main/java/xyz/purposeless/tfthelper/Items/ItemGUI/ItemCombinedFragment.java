@@ -1,7 +1,6 @@
-package xyz.purposeless.tfthelper.Items;
+package xyz.purposeless.tfthelper.Items.ItemGUI;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import xyz.purposeless.tfthelper.Items.TFTItemBaseEnum;
+import xyz.purposeless.tfthelper.Items.TFTItemEnum;
 import xyz.purposeless.tfthelper.R;
 
 /**
