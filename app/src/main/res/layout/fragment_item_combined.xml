@@ -39,4 +39,21 @@
         app:layout_constraintStart_toStartOf="@+id/combinedItemName"
         app:layout_constraintTop_toBottomOf="@+id/combinedItemName"
         app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/baseItemImage1"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="?attr/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="@+id/combinedItemImage"
+        app:layout_constraintEnd_toEndOf="@+id/combinedItemImage" />
+
+    <ImageView
+        android:id="@+id/baseItemImage2"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="?attr/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="@+id/combinedItemImage"
+        app:layout_constraintEnd_toStartOf="@+id/baseItemImage1" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

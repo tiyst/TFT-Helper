@@ -1,38 +1,43 @@
 package xyz.purposeless.tfthelper.Champions.ChampionGUI;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import xyz.purposeless.tfthelper.Champions.Champion;
 import xyz.purposeless.tfthelper.R;
+import xyz.purposeless.tfthelper.Utils.HexagonMaskView;
 
 public class ChampionFragment extends Fragment {
     private static final String TAG = "ChampionFragment: ";
     private static final String ARG_CHAMPION = "championParam";
 
     private Champion champion;
+    private HexagonMaskView imageView;
 
-    private OnFragmentInteractionListener mListener;
+    private onChampFragmentInteractionListener mListener;
 
     public ChampionFragment() {
         // Required empty public constructor
     }
 
-    public static ChampionFragment newInstance(String param1) {
+    public static ChampionFragment newInstance(String champName) {
         ChampionFragment fragment = new ChampionFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_CHAMPION, param1);
+        args.putString(ARG_CHAMPION, champName);
         fragment.setArguments(args);
         return fragment;
+    }
+
+    public void questionMark() {
+        imageView.setImageResource(R.drawable.question_mark);
     }
 
     @Override
@@ -52,23 +57,27 @@ public class ChampionFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         view.setOnClickListener(view1 -> onFragmentPressed());
+        imageView = view.findViewById(R.id.championIcon);
+        imageView.setImageResource(champion.getChampionImageID());
+
         super.onViewCreated(view, savedInstanceState);
     }
 
     public void onFragmentPressed() {
+        Log.d(TAG, "onFragmentPressed: champion pressed " + champion.getName());
         if (mListener != null) {
-            mListener.onChampionInteraction();
+            mListener.onChampionInteraction(this.champion);
         }
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
+        if (context instanceof onChampFragmentInteractionListener) {
+            mListener = (onChampFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
+                    + " must implement onChampFragmentInteractionListener");
         }
     }
 
@@ -80,7 +89,7 @@ public class ChampionFragment extends Fragment {
 
 
 
-    public interface OnFragmentInteractionListener {
-        void onChampionInteraction();
+    public interface onChampFragmentInteractionListener {
+        void onChampionInteraction(Champion champion);
     }
 }

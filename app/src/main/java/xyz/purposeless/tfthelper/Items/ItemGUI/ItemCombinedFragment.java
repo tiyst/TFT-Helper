@@ -61,19 +61,18 @@ public class ItemCombinedFragment extends Fragment {
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 		combinedItem = TFTItemEnum.combineBaseItems(mItem1,mItem2);
 		ImageView itemImg = view.findViewById(R.id.combinedItemImage);
+		ImageView baseItem1 = view.findViewById(R.id.baseItemImage1);
+		ImageView baseItem2 = view.findViewById(R.id.baseItemImage2);
 		TextView itemName = view.findViewById(R.id.combinedItemName);
 		TextView itemDesc = view.findViewById(R.id.combinedItemDescription);
 
 		itemImg.setImageResource(combinedItem.getItemImageID());
+		baseItem1.setImageResource(mItem1.getItemImageID());
+		baseItem2.setImageResource(mItem2.getItemImageID());
 		itemName.setText(combinedItem.getItemName());
 		itemDesc.setText(combinedItem.getItemDescription());
 
-		view.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				onCombinedItemInteraction();
-			}
-		});
+		view.setOnClickListener(view1 -> onCombinedItemInteraction());
 
 		super.onViewCreated(view, savedInstanceState);
 

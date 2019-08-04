@@ -6,4 +6,50 @@
     android:layout_height="match_parent"
     tools:context=".Champions.ChampionGUI.ChampionActivity">
 
+    <HorizontalScrollView
+        android:id="@+id/ownedChampions"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/ownedChampionsLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"></LinearLayout>
+    </HorizontalScrollView>
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.gridlayout.widget.GridLayout
+            android:id="@+id/gridChampLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:columnCount="4"
+            app:rowCount="4">
+
+        </androidx.gridlayout.widget.GridLayout>
+    </ScrollView>
+
+    <HorizontalScrollView
+        android:id="@+id/ownedAttributes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.gridlayout.widget.GridLayout
+            android:id="@+id/ownedAttributesLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:columnCount="4"
+            app:rowCount="4">
+
+        </androidx.gridlayout.widget.GridLayout>
+    </HorizontalScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

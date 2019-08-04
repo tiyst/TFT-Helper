@@ -9,23 +9,23 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import xyz.purposeless.tfthelper.Champions.ChampionOrigin;
+import xyz.purposeless.tfthelper.Champions.ChampionAttribute;
 import xyz.purposeless.tfthelper.R;
 import xyz.purposeless.tfthelper.Utils.HexagonMaskView;
 
-public class OriginFragment extends Fragment {
+public class ChampionAttributeFragment extends Fragment {
     private static final String ARG_ORIGIN = "originParam";
 
-    private ChampionOrigin origin;
+    private ChampionAttribute attribute;
     HexagonMaskView hexImage;
 
 
-    public OriginFragment() {
+    public ChampionAttributeFragment() {
         // Required empty public constructor
     }
 
-    public static OriginFragment newInstance(String originName) {
-        OriginFragment fragment = new OriginFragment();
+    public static ChampionAttributeFragment newInstance(String originName) {
+        ChampionAttributeFragment fragment = new ChampionAttributeFragment();
         Bundle args = new Bundle();
         args.putString(ARG_ORIGIN, originName);
         fragment.setArguments(args);
@@ -36,7 +36,10 @@ public class OriginFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            origin = ChampionOrigin.fromString(getArguments().getString(ARG_ORIGIN));
+            attribute = ChampionAttribute.fromString(getArguments().getString(ARG_ORIGIN));
+            /*if (attribute == null) { //FIXME
+                attribute = ChampionClass.fromString(getArguments().getString(ARG_ORIGIN));
+            }*/
         }
     }
 
@@ -50,7 +53,7 @@ public class OriginFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         hexImage = view.findViewById(R.id.originImage);
-        hexImage.setImageResource(origin.getIconID());
+        hexImage.setImageResource(attribute.getIconID());
 
         super.onViewCreated(view, savedInstanceState);
     }
