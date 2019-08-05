@@ -1,4 +1,4 @@
-package xyz.purposeless.tfthelper.Champions.ChampionGUI;
+package xyz.purposeless.tfthelper.Champions.ChampionBuilderGUI;
 
 import android.os.Bundle;
 import android.widget.LinearLayout;
@@ -17,11 +17,13 @@ import java.util.Map;
 import xyz.purposeless.tfthelper.Champions.Champion;
 import xyz.purposeless.tfthelper.Champions.ChampionAttribute;
 import xyz.purposeless.tfthelper.Champions.ChampionClass;
+import xyz.purposeless.tfthelper.Champions.ChampionGUIElements.ChampionAttributeFragment;
+import xyz.purposeless.tfthelper.Champions.ChampionGUIElements.ChampionFragment;
 import xyz.purposeless.tfthelper.Champions.ChampionOrigin;
 import xyz.purposeless.tfthelper.Exception.TFTRuntimeException;
 import xyz.purposeless.tfthelper.R;
 
-public class ChampionActivity extends AppCompatActivity implements
+public class ChampionBuilderActivity extends AppCompatActivity implements
         ChampionFragment.onChampFragmentInteractionListener {
 
     ChampionController controller;
@@ -54,6 +56,7 @@ public class ChampionActivity extends AppCompatActivity implements
             f.questionMark();
             fragmentTransaction.add(linearLayout.getId(), f, String.valueOf(i));
         }
+        fragmentTransaction.commitNow();
     }
 
 
@@ -91,7 +94,7 @@ public class ChampionActivity extends AppCompatActivity implements
                     addAttribute(clas);
                 }
             } else {
-                Toast.makeText(ChampionActivity.this, champ.getName() + getString(R.string.championAlreadyPresent), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ChampionBuilderActivity.this, champ.getName() + getString(R.string.championAlreadyPresent), Toast.LENGTH_SHORT).show();
             }
         }
 

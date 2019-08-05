@@ -1,4 +1,4 @@
-package xyz.purposeless.tfthelper.Champions.ChampionGUI;
+package xyz.purposeless.tfthelper.Champions.ChampionGUIElements;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

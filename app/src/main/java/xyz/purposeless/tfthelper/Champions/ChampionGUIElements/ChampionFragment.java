@@ -1,4 +1,4 @@
-package xyz.purposeless.tfthelper.Champions.ChampionGUI;
+package xyz.purposeless.tfthelper.Champions.ChampionGUIElements;
 
 import android.content.Context;
 import android.os.Bundle;

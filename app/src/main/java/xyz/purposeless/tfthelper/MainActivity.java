@@ -7,7 +7,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import xyz.purposeless.tfthelper.Champions.ChampionGUI.ChampionActivity;
+import xyz.purposeless.tfthelper.Champions.ChampionBuilderGUI.ChampionBuilderActivity;
 import xyz.purposeless.tfthelper.Items.ItemGUI.ItemActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	public void champsOnClick(View view) {
-		startActivity(new Intent(this, ChampionActivity.class));
+		startActivity(new Intent(this, ChampionBuilderActivity.class));
 	}
 
     public static Context getContext() {
