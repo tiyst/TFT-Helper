@@ -36,10 +36,6 @@ public class ChampionFragment extends Fragment {
         return fragment;
     }
 
-    public void questionMark() {
-        imageView.setImageResource(R.drawable.question_mark);
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

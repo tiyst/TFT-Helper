@@ -58,7 +58,8 @@ public enum Champion {
     VOLIBEAR(R.drawable.champion_volibear, 3, "Volibear", ChampionOrigin.GLACIAL, ChampionClass.BRAWLER),
     WARWICK(R.drawable.champion_warwick, 1, "Warwick", ChampionOrigin.WILD, ChampionClass.BRAWLER),
     YASUO(R.drawable.champion_yasuo, 5, "Yasuo", ChampionOrigin.EXILE, ChampionClass.BLADEMASTER),
-    ZED(R.drawable.champion_zed, 2, "Zed", ChampionOrigin.NINJA, ChampionClass.ASSASSIN);
+    ZED(R.drawable.champion_zed, 2, "Zed", ChampionOrigin.NINJA, ChampionClass.ASSASSIN),
+    PLACEHOLDER(R.drawable.question_mark,-1, "Placeholder", ChampionOrigin.NINJA, ChampionClass.ASSASSIN);
 
 
     private int championImageID;

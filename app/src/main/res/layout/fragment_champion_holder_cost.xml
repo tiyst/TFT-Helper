@@ -22,7 +22,7 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="8dp"
-        android:src="@drawable/goldKIcon"
+        android:src="@drawable/gold_k_icon"
         app:layout_constraintBottom_toBottomOf="@+id/championHolderCostImage"
         app:layout_constraintStart_toEndOf="@+id/textView" />
 

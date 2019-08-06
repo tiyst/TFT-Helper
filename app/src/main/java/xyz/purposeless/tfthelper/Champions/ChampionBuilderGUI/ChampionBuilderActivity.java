@@ -24,7 +24,8 @@ import xyz.purposeless.tfthelper.Exception.TFTRuntimeException;
 import xyz.purposeless.tfthelper.R;
 
 public class ChampionBuilderActivity extends AppCompatActivity implements
-        ChampionFragment.onChampFragmentInteractionListener {
+        ChampionFragment.onChampFragmentInteractionListener,
+        ChampionTeamFragment.ownedChampionInteractionListener {
 
     ChampionController controller;
 
@@ -52,8 +53,7 @@ public class ChampionBuilderActivity extends AppCompatActivity implements
         //Owned champions
         fragmentTransaction = fragmentManager.beginTransaction();
         for (int i = 0; i < 10; i++) {
-            ChampionFragment f = new ChampionFragment();
-            f.questionMark();
+            ChampionTeamFragment f = ChampionTeamFragment.newInstance(Champion.PLACEHOLDER.getName());
             fragmentTransaction.add(linearLayout.getId(), f, String.valueOf(i));
         }
         fragmentTransaction.commitNow();
@@ -65,7 +65,10 @@ public class ChampionBuilderActivity extends AppCompatActivity implements
         controller.addChampion(champion);
     }
 
-
+    @Override
+    public void ownedChampionInteraction(Champion champion) {
+        controller.removeChampion(champion);
+    }
 
 
     private class ChampionController {
@@ -113,26 +116,53 @@ public class ChampionBuilderActivity extends AppCompatActivity implements
         }
 
         void addAttribute(ChampionAttribute attr) {
-            addAttributeFragment(attr);
             this.attributes.put(attr, this.attributes.get(attr) + 1);
-//            checkAttributes();
+            checkAttributes(attr);
         }
 
 
         void removeAttribute(ChampionAttribute attr) {
             this.attributes.put(attr, this.attributes.get(attr) - 1);
-//            checkAttributes();
-            removeAttributeFragment(attr);
+            checkAttributes(attr);
+        }
+
+        void checkAttributes(ChampionAttribute attr) {
+            Integer count = this.attributes.get(attr);
+            if (count == 0) { //No more of this attr
+                removeAttributeFragment(attr);
+            }
+            if (count == 1) { //Freshly added
+                addAttributeFragment(attr);
+            }
+
+            //Controlling if max req. has been met
+            if (count == attr.getBonusReq()[attr.getBonusReq().length-1]) {
+                fullAttributeFragment(attr);
+            } else {
+                notFullAttributeFragment(attr);
+            }
         }
 
 
         void checkAttributes() {
+            for (Map.Entry<ChampionAttribute,Integer> entry : this.attributes.entrySet()) {
+                if (entry.getValue() == 0) { //This attribute
+                    removeAttributeFragment(entry.getKey());
+                }
 
+                int[] bonusRequirements = entry.getKey().getBonusReq();
+                if (entry.getValue() == bonusRequirements[bonusRequirements.length-1]) {
+                    fullAttributeFragment(entry.getKey());
+                } else {
+                    notFullAttributeFragment(entry.getKey());
+                }
+            }
         }
 
         //Adds attribute fragment (at least 1 champ with attribute is in pool)
         void addAttributeFragment(ChampionAttribute attr) {
-            if (attributes.get(attr) == 0) {
+            ChampionFragment f = (ChampionFragment) getSupportFragmentManager().findFragmentByTag(attr.getName());
+            if (f != null) {
                 FragmentTransaction fManager = getSupportFragmentManager().beginTransaction();
                 fManager.add(R.id.ownedAttributesLayout,
                         ChampionAttributeFragment.newInstance(attr.getName()), attr.getName());
@@ -150,13 +180,17 @@ public class ChampionBuilderActivity extends AppCompatActivity implements
             }
         }
 
-        //when attribute minimum isn't met, make icon transparent
+        void checkGoldenRequirements() {
+
+        }
+
+        //when attribute minimum isn't met, draw icon grey
         void notFullAttributeFragment(ChampionAttribute attr) {
 
         }
 
-        //when attribute minimum is met, make icon not transparent
-        void fullAttributeFragment(ChampionAttribute attr, boolean maxChampions) {
+        //when attribute minimum is met, draw icon gold
+        void fullAttributeFragment(ChampionAttribute attr) {
 
         }
     }

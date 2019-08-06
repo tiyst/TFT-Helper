@@ -1,7 +1,6 @@
 package xyz.purposeless.tfthelper.Champions.ChampionDividerGUI;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -20,12 +19,10 @@ import java.util.List;
 import xyz.purposeless.tfthelper.Champions.Champion;
 import xyz.purposeless.tfthelper.Champions.ChampionGUIElements.ChampionFragment;
 import xyz.purposeless.tfthelper.R;
-import xyz.purposeless.tfthelper.Utils.HexagonMaskView;
 
 public class ChampionHolderCostFragment extends Fragment {
-    private static final String ARG_COST = "param1";
+    private static final String ARG_COST = "paramCost";
 
-    // TODO: Rename and change types of parameters
     private int championCost;
     private List<Champion> Champions;
 
@@ -60,7 +57,7 @@ public class ChampionHolderCostFragment extends Fragment {
 
     public void onChampionHolderClick() {
         if (mListener != null) {
-            mListener.onFragmentInteraction();
+            mListener.onChampionHolderCostFragmentInteraction();
         }
     }
 
@@ -106,6 +103,6 @@ public class ChampionHolderCostFragment extends Fragment {
     }
 
     public interface onChampionHolderCostFragment {
-        void onFragmentInteraction();
+        void onChampionHolderCostFragmentInteraction();
     }
 }

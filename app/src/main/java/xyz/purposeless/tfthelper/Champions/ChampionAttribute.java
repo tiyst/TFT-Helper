@@ -5,6 +5,8 @@ public interface ChampionAttribute {
     int getIconID();
 
     String getName();
+
+    int[] getBonusReq();
     //TODO redo to abstract class, so I can 'fromString' from here rather from enums  !!!
 
     static ChampionAttribute fromString(String attrName) {

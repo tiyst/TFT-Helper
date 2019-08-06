@@ -18,6 +18,7 @@ public class ChampionAttributeFragment extends Fragment {
 
     private ChampionAttribute attribute;
     HexagonMaskView hexImage;
+    private boolean isGolden = false;
 
 
     public ChampionAttributeFragment() {
@@ -37,9 +38,6 @@ public class ChampionAttributeFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             attribute = ChampionAttribute.fromString(getArguments().getString(ARG_ORIGIN));
-            /*if (attribute == null) { //FIXME
-                attribute = ChampionClass.fromString(getArguments().getString(ARG_ORIGIN));
-            }*/
         }
     }
 
@@ -64,5 +62,13 @@ public class ChampionAttributeFragment extends Fragment {
 
     public void makeFull() {
         hexImage.setImageAlpha(0);
+    }
+
+    public boolean isGolden() {
+        return isGolden;
+    }
+
+    public void setGolden(boolean golden) {
+        this.isGolden = golden;
     }
 }

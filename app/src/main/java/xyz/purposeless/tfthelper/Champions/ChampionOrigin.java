@@ -39,6 +39,11 @@ public enum ChampionOrigin implements ChampionAttribute {
         return originName;
     }
 
+    @Override
+    public int[] getBonusReq() {
+        return effectRequired;
+    }
+
 
     public static ChampionOrigin fromString(String org) {
         for (ChampionOrigin origin : ChampionOrigin.values()) {
@@ -48,9 +53,5 @@ public enum ChampionOrigin implements ChampionAttribute {
         }
 
         return null;
-    }
-
-    public int[] getEffectRequired() {
-        return effectRequired;
     }
 }
