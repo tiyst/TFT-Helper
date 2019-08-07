@@ -150,6 +150,5 @@ public enum Champion {
             }
         }
         return champions;
-
     }
 }

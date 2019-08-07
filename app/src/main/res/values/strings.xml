@@ -107,7 +107,7 @@
     <string name="inventoryText">Inventory</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="championAlreadyPresent"> already in team!</string>
+    <string name="championAlreadyPresent">  is already in your team!</string>
     <string name="champion_holder_cost_image">Champion Holder Cost Image</string>
     <string name="title_activity_champion_divider">ChampionDividerActivity</string>
 </resources>

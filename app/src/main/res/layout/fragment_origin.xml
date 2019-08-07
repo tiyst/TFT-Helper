@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,7 +8,44 @@
 
     <xyz.purposeless.tfthelper.Utils.HexagonMaskView
         android:id="@+id/originImage"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="?attr/colorAccent" />
-</FrameLayout>
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:src="?attr/colorAccent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/currentNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/originImage"
+        app:layout_constraintEnd_toEndOf="@+id/originImage"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="@+id/originImage"
+        app:layout_constraintTop_toBottomOf="@+id/originImage" />
+
+    <TextView
+        android:id="@+id/delimeter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="/"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="@+id/originImage"
+        app:layout_constraintEnd_toEndOf="@+id/originImage"
+        app:layout_constraintStart_toStartOf="@+id/originImage"
+        app:layout_constraintTop_toBottomOf="@+id/originImage" />
+
+    <TextView
+        android:id="@+id/nextNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/originImage"
+        app:layout_constraintEnd_toEndOf="@+id/originImage"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toStartOf="@+id/originImage"
+        app:layout_constraintTop_toBottomOf="@+id/originImage" />
+</androidx.constraintlayout.widget.ConstraintLayout>

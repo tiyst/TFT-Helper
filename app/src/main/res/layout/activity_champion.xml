@@ -23,7 +23,7 @@
     </HorizontalScrollView>
 
     <ScrollView
-        android:id="@+id/scrollView2"
+        android:id="@+id/allChampions"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/ownedAttributes"
@@ -52,8 +52,8 @@
             android:id="@+id/ownedAttributesLayout"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            app:columnCount="4"
-            app:rowCount="4">
+            app:columnCount="7"
+            app:rowCount="7">
 
         </androidx.gridlayout.widget.GridLayout>
     </HorizontalScrollView>

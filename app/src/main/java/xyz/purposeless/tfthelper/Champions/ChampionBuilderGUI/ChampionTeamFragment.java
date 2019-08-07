@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,6 +13,7 @@ import androidx.fragment.app.Fragment;
 
 import xyz.purposeless.tfthelper.Champions.Champion;
 import xyz.purposeless.tfthelper.R;
+import xyz.purposeless.tfthelper.Utils.HexagonMaskView;
 
 public class ChampionTeamFragment extends Fragment {
 
@@ -19,6 +21,7 @@ public class ChampionTeamFragment extends Fragment {
 
     private Champion champion;
     private ownedChampionInteractionListener mListener;
+    private HexagonMaskView image;
 
     public ChampionTeamFragment() {
         // Required empty public constructor
@@ -50,6 +53,9 @@ public class ChampionTeamFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         view.setOnClickListener(view1 -> onFragmentPressed(champion));
+        image = view.findViewById(R.id.inventoryChampion);
+        image.setImageResource(champion.getChampionImageID());
+
         super.onViewCreated(view, savedInstanceState);
     }
 
@@ -57,6 +63,17 @@ public class ChampionTeamFragment extends Fragment {
         if (mListener != null) {
             mListener.ownedChampionInteraction(champion);
         }
+    }
+
+    public void changeChampion(Champion champ) {
+        this.champion = champ;
+        image.setImageResource(champ.getChampionImageID());
+
+    }
+
+    public void changeToPlaceholder() {
+        this.champion = Champion.PLACEHOLDER;
+        image.setImageResource(R.drawable.question_mark);
     }
 
     @Override
