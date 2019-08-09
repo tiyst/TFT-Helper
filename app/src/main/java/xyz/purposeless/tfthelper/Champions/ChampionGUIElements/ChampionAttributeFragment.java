@@ -1,6 +1,9 @@
 package xyz.purposeless.tfthelper.Champions.ChampionGUIElements;
 
+import android.graphics.ColorFilter;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +17,12 @@ import xyz.purposeless.tfthelper.R;
 import xyz.purposeless.tfthelper.Utils.HexagonMaskView;
 
 public class ChampionAttributeFragment extends Fragment {
+    private static final String TAG = "ChampionAttrFragment";
     private static final String ARG_ORIGIN = "originParam";
 
     private ChampionAttribute attribute;
-    HexagonMaskView hexImage;
+    private HexagonMaskView hexImage;
+    private HexagonMaskView colorMask;
     private boolean isGolden = false;
 
 
@@ -52,6 +57,8 @@ public class ChampionAttributeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         hexImage = view.findViewById(R.id.originImage);
         hexImage.setImageResource(attribute.getIconID());
+        colorMask = view.findViewById(R.id.colorMask);
+        colorMask.setAlpha(0.5f);
 
         super.onViewCreated(view, savedInstanceState);
     }
@@ -69,6 +76,20 @@ public class ChampionAttributeFragment extends Fragment {
     }
 
     public void setGolden(boolean golden) {
+        Log.d(TAG, "setGolden: " + golden);
         this.isGolden = golden;
+        processGolden();
+    }
+
+    public void processGolden() {
+        if (this.isGolden) {
+            .setColorFilter(getResources().getColor(R.color.attrColorGolden));
+        } else {
+            hexImage.setColorFilter(getResources().getColor(R.color.attrColorNotGolden));
+        }
+    }
+
+    public void setImageAlpha(float value) {
+        hexImage.setAlpha(value);
     }
 }

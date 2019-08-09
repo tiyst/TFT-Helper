@@ -7,6 +7,12 @@
     tools:context=".Champions.ChampionBuilderGUI.ChampionTeamFragment">
 
     <xyz.purposeless.tfthelper.Utils.HexagonMaskView
+        android:id="@+id/colorMask"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="?attr/actionModeSplitBackground" />
+
+    <xyz.purposeless.tfthelper.Utils.HexagonMaskView
         android:id="@+id/inventoryChampion"
         android:layout_width="60dp"
         android:layout_height="60dp"

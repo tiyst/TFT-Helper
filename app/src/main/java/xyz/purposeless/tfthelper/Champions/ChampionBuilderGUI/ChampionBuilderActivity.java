@@ -28,6 +28,10 @@ public class ChampionBuilderActivity extends AppCompatActivity implements
         ChampionFragment.onChampFragmentInteractionListener,
         ChampionTeamFragment.ownedChampionInteractionListener {
 
+    private static final String TAG = "ChampionBuilderActivity";
+    private static final float NOT_FULL = 0.5f;
+
+
     ChampionController controller;
 
     @Override
@@ -155,12 +159,18 @@ public class ChampionBuilderActivity extends AppCompatActivity implements
                 addAttributeFragment(attr);
             }
 
-            //Controlling if max req. has been met
-            if (count == attr.getBonusReq()[attr.getBonusReq().length - 1]) {
-                fullAttributeFragment(attr);
+            if (count == attr.getBonusReq()[0]) { //At least first req was met?
+                if (count == attr.getBonusReq()[attr.getBonusReq().length - 1]) { //Full req was met?
+                    fullAttributeFragment(attr);
+                } else { //At least first step
+                    notFullAttributeFragment(attr);
+                }
             } else {
-                notFullAttributeFragment(attr);
+                transparentAttributeFragment(attr);
             }
+
+            //TODO change implement fullness
+            checkGoldenRequirements();
         }
 
 
@@ -189,14 +199,34 @@ public class ChampionBuilderActivity extends AppCompatActivity implements
 
         }
 
+        void transparentAttributeFragment(ChampionAttribute attr) {
+            ChampionAttributeFragment f = (ChampionAttributeFragment) getSupportFragmentManager().findFragmentByTag(attr.getName());
+
+            if (f != null) {
+                f.setImageAlpha(NOT_FULL);
+            } else {
+                Log.d(TAG, "transparentAttributeFragment: fragment is null" + attr.getName());
+            }
+        }
+
         //when attribute minimum isn't met, draw icon grey
         void notFullAttributeFragment(ChampionAttribute attr) {
-
+            ChampionAttributeFragment f = (ChampionAttributeFragment) getSupportFragmentManager().findFragmentByTag(attr.getName());
+            if (f != null) {
+                f.setGolden(false);
+            } else {
+                Log.d(TAG, "notFullAttributeFragment: to unmake golden attribute not found");
+            }
         }
 
         //when attribute minimum is met, draw icon gold
         void fullAttributeFragment(ChampionAttribute attr) {
-
+            ChampionAttributeFragment f = (ChampionAttributeFragment) getSupportFragmentManager().findFragmentByTag(attr.getName());
+            if (f != null) {
+                f.setGolden(true);
+            } else {
+                Log.d(TAG, "fullAttributeFragment: to make golden attribute not found");
+            }
         }
     }
 }

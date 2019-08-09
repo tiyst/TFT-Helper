@@ -18,6 +18,7 @@ import xyz.purposeless.tfthelper.Utils.HexagonMaskView;
 public class ChampionTeamFragment extends Fragment {
 
     private static final String ARG_CHAMPION = "championParameter";
+    private static final float NOT_FULL = 0.5f;
 
     private Champion champion;
     private ownedChampionInteractionListener mListener;
@@ -63,17 +64,6 @@ public class ChampionTeamFragment extends Fragment {
         if (mListener != null) {
             mListener.ownedChampionInteraction(champion);
         }
-    }
-
-    public void changeChampion(Champion champ) {
-        this.champion = champ;
-        image.setImageResource(champ.getChampionImageID());
-
-    }
-
-    public void changeToPlaceholder() {
-        this.champion = Champion.PLACEHOLDER;
-        image.setImageResource(R.drawable.question_mark);
     }
 
     @Override

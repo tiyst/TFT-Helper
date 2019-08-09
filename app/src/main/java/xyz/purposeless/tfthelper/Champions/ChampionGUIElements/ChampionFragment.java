@@ -60,7 +60,6 @@ public class ChampionFragment extends Fragment {
     }
 
     public void onFragmentPressed() {
-        Log.d(TAG, "onFragmentPressed: champion pressed " + champion.getName());
         if (mListener != null) {
             mListener.onChampionInteraction(this.champion);
         }
