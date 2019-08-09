@@ -44,6 +44,32 @@ public enum ChampionOrigin implements ChampionAttribute {
         return effectRequired;
     }
 
+    @Override
+    public int getNextRequirement(int current) {
+        for (int i = 0; i < effectRequired.length; i++) {
+            if (i == effectRequired.length - 1 && current < effectRequired[i]) {
+                return effectRequired[i];
+            }
+            //Is bigger or maxed
+            if (current < effectRequired[i] || current == effectRequired[effectRequired.length - 1]) {
+                return effectRequired[i];
+            }
+        }
+
+        return -1;
+    }
+
+    @Override
+    public REQUIREMENT_STATUS meetsRequirements(int count) {
+        if (count == effectRequired[effectRequired.length-1] || count > effectRequired[effectRequired.length-1]) {
+            return REQUIREMENT_STATUS.FULL;
+        } else if (count >= effectRequired[0]) {
+            return REQUIREMENT_STATUS.FULFILLED;
+        } else if (count > 0){
+            return REQUIREMENT_STATUS.NOT_FULFILLED;
+        }
+        return REQUIREMENT_STATUS.NOT_FULFILLED;
+    }
 
     public static ChampionOrigin fromString(String org) {
         for (ChampionOrigin origin : ChampionOrigin.values()) {

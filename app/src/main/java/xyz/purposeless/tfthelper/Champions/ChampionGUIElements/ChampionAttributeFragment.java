@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,11 +22,16 @@ public class ChampionAttributeFragment extends Fragment {
     private static final String TAG = "ChampionAttrFragment";
     private static final String ARG_ORIGIN = "originParam";
     public static final float ALPHA_FULL  = 1.00f;
-    public static final float ALPHA_NOTFULL  = 1.00f;
+    public static final float ALPHA_NOTFULL  = 0.5f;
+
 
     private ChampionAttribute attribute;
     private HexagonMaskView hexImage;
-    private HexagonMaskView colorMask;
+    private TextView currentNumberView;
+    private TextView nextNumberView;
+
+    private int current;
+    private int nextRequirement;
     private boolean isGolden = false;
 
 
@@ -60,8 +66,8 @@ public class ChampionAttributeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         hexImage = view.findViewById(R.id.originImage);
         hexImage.setImageResource(attribute.getIconID());
-        /*colorMask = view.findViewById(R.id.colorMask);
-        colorMask.setAlpha(0.5f);*/
+        currentNumberView = view.findViewById(R.id.currentNumber);
+        nextNumberView = view.findViewById(R.id.nextNumber);
 
         super.onViewCreated(view, savedInstanceState);
     }
@@ -87,7 +93,6 @@ public class ChampionAttributeFragment extends Fragment {
 
     private void processGolden() {
         if (this.isGolden) {
-//            hexImage.setColorFilter(ContextCompat.getColor(context, R.color.COLOR_YOUR_COLOR), android.graphics.PorterDuff.Mode.MULTIPLY);
             hexImage.setColorFilter(getResources().getColor(R.color.attrColorGolden), android.graphics.PorterDuff.Mode.MULTIPLY);
         } else {
             hexImage.setColorFilter(getResources().getColor(R.color.attrColorNotGolden), android.graphics.PorterDuff.Mode.MULTIPLY);
@@ -96,5 +101,27 @@ public class ChampionAttributeFragment extends Fragment {
 
     public void setImageAlpha(float value) {
         hexImage.setAlpha(value);
+    }
+
+    public int getCurrent() {
+        return current;
+    }
+
+    public void setCurrent(int current) {
+        this.currentNumberView.setText(String.valueOf(current));
+        this.current = current;
+    }
+
+    public int getNextRequirement() {
+        return nextRequirement;
+    }
+
+    public void setNextRequirement(int nextRequirement) {
+        this.nextNumberView.setText(String.valueOf(nextRequirement));
+        this.nextRequirement = nextRequirement;
+    }
+
+    public ChampionAttribute getAttribute() {
+        return attribute;
     }
 }

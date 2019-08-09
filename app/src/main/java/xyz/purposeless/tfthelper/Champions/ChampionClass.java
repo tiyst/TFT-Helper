@@ -49,4 +49,28 @@ public enum ChampionClass implements ChampionAttribute {
     public int[] getBonusReq() {
         return effectRequired;
     }
+
+    @Override
+    public REQUIREMENT_STATUS meetsRequirements(int count) {
+
+        if (count == effectRequired[effectRequired.length-1]) {
+            return REQUIREMENT_STATUS.FULL;
+        } else if (count == 0) {
+            return REQUIREMENT_STATUS.NOT_FULFILLED;
+        } else {
+            return REQUIREMENT_STATUS.FULFILLED;
+        }
+    }
+
+    @Override
+    public int getNextRequirement(int current) {
+        for (int i = 0; i < effectRequired.length; i++) {
+            //Is bigger or maxed
+            if (current < effectRequired[i] || current == effectRequired[effectRequired.length - 1]) {
+                return effectRequired[i];
+            }
+        }
+
+        return -1;
+    }
 }

@@ -2,7 +2,6 @@ package xyz.purposeless.tfthelper.Champions.ChampionBuilderGUI;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -47,7 +46,6 @@ public class ChampionBuilderActivity extends AppCompatActivity implements
 
     private void initChampions() {
         GridLayout allChampionsLayout = findViewById(R.id.gridChampLayout);
-        LinearLayout ownedChampionsLayout = findViewById(R.id.ownedChampionsLayout);
 
         //All champions
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -118,7 +116,7 @@ public class ChampionBuilderActivity extends AppCompatActivity implements
                 throw new TFTRuntimeException("You done goofed. Now go and fix it.");
             }
         }
-        
+
         void addChampionTeamFragment(Champion champion) {
 //            ChampionTeamFragment f = (ChampionTeamFragment) getSupportFragmentManager().findFragmentByTag(String.valueOf(champion));
             FragmentTransaction fManager = getSupportFragmentManager().beginTransaction();
@@ -134,7 +132,6 @@ public class ChampionBuilderActivity extends AppCompatActivity implements
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                 transaction.remove(f);
                 transaction.commitNow();
-//                addChampionTeamFragment(Champion.PLACEHOLDER);
             }
 
         }
@@ -159,29 +156,36 @@ public class ChampionBuilderActivity extends AppCompatActivity implements
                 addAttributeFragment(attr);
             }
 
-            if (count == attr.getBonusReq()[0]) { //At least first req was met?
-                if (count == attr.getBonusReq()[attr.getBonusReq().length - 1]) { //Full req was met?
-                    fullAttributeFragment(attr);
-                } else { //At least first step
-                    notFullAttributeFragment(attr);
-                }
-            } else {
-                transparentAttributeFragment(attr);
+            switch(attr.meetsRequirements(count)) {
+                case FULL: fullAttributeFragment(attr);
+                    break;
+                case FULFILLED: notFullAttributeFragment(attr);
+                    break;
+                case NOT_FULFILLED: transparentAttributeFragment(attr);
+                    break;
+
+                default:
+                    Log.d(TAG, "checkAttributes: You what?!");
             }
 
-//            checkGoldenRequirements();
-            checkNumberRequirements();
+            checkRequirementNumbers(attr);
+
         }
 
-        private void checkNumberRequirements() {
-            for (Map.Entry<ChampionAttribute, Integer> attr : this.attributes.entrySet()) {
-                if (attr.getValue() >= attr.getKey().getBonusReq()[0]) {
-                    checkGoldenRequirements();
-                } else if (attr.getValue() > 0) {
-                    transparentAttributeFragment(attr.getKey()); //Not all
+        private void checkRequirementNumbers(ChampionAttribute attr) {
+            ChampionAttributeFragment f = (ChampionAttributeFragment) getSupportFragmentManager().findFragmentByTag(attr.getName());
+            if (f != null) {
+
+                int current = attributes.get(attr);
+                f.setCurrent(current);
+
+                int req = f.getAttribute().getNextRequirement(current);
+                if (req != f.getNextRequirement()) {
+                    f.setNextRequirement(req);
                 }
             }
         }
+
 
 
         //Adds attribute fragment (at least 1 champ with attribute is in pool)
@@ -205,9 +209,6 @@ public class ChampionBuilderActivity extends AppCompatActivity implements
             }
         }
 
-        void checkGoldenRequirements() {
-
-        }
 
         void transparentAttributeFragment(ChampionAttribute attr) {
             ChampionAttributeFragment f = (ChampionAttributeFragment) getSupportFragmentManager().findFragmentByTag(attr.getName());

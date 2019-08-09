@@ -2,11 +2,22 @@ package xyz.purposeless.tfthelper.Champions;
 
 public interface ChampionAttribute {
 
+    enum REQUIREMENT_STATUS {
+        NOT_FULFILLED,
+        FULFILLED,
+        FULL;
+    }
+
     int getIconID();
 
     String getName();
 
     int[] getBonusReq();
+
+    //return current if max has been reached
+    int getNextRequirement(int current);
+
+    REQUIREMENT_STATUS meetsRequirements(int count);
 
     static ChampionAttribute fromString(String attrName) {
         for (ChampionClass clas : ChampionClass.values()) {
