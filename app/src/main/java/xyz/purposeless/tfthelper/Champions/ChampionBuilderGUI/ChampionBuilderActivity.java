@@ -169,8 +169,18 @@ public class ChampionBuilderActivity extends AppCompatActivity implements
                 transparentAttributeFragment(attr);
             }
 
-            //TODO change implement fullness
-            checkGoldenRequirements();
+//            checkGoldenRequirements();
+            checkNumberRequirements();
+        }
+
+        private void checkNumberRequirements() {
+            for (Map.Entry<ChampionAttribute, Integer> attr : this.attributes.entrySet()) {
+                if (attr.getValue() >= attr.getKey().getBonusReq()[0]) {
+                    checkGoldenRequirements();
+                } else if (attr.getValue() > 0) {
+                    transparentAttributeFragment(attr.getKey()); //Not all
+                }
+            }
         }
 
 
@@ -203,9 +213,9 @@ public class ChampionBuilderActivity extends AppCompatActivity implements
             ChampionAttributeFragment f = (ChampionAttributeFragment) getSupportFragmentManager().findFragmentByTag(attr.getName());
 
             if (f != null) {
-                f.setImageAlpha(NOT_FULL);
+                f.setImageAlpha(ChampionAttributeFragment.ALPHA_NOTFULL);
             } else {
-                Log.d(TAG, "transparentAttributeFragment: fragment is null" + attr.getName());
+                Log.d(TAG, "transparentAttributeFragment: fragment is null " + attr.getName());
             }
         }
 

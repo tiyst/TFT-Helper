@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import xyz.purposeless.tfthelper.Champions.ChampionAttribute;
@@ -19,6 +20,8 @@ import xyz.purposeless.tfthelper.Utils.HexagonMaskView;
 public class ChampionAttributeFragment extends Fragment {
     private static final String TAG = "ChampionAttrFragment";
     private static final String ARG_ORIGIN = "originParam";
+    public static final float ALPHA_FULL  = 1.00f;
+    public static final float ALPHA_NOTFULL  = 1.00f;
 
     private ChampionAttribute attribute;
     private HexagonMaskView hexImage;
@@ -57,8 +60,8 @@ public class ChampionAttributeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         hexImage = view.findViewById(R.id.originImage);
         hexImage.setImageResource(attribute.getIconID());
-        colorMask = view.findViewById(R.id.colorMask);
-        colorMask.setAlpha(0.5f);
+        /*colorMask = view.findViewById(R.id.colorMask);
+        colorMask.setAlpha(0.5f);*/
 
         super.onViewCreated(view, savedInstanceState);
     }
@@ -77,15 +80,17 @@ public class ChampionAttributeFragment extends Fragment {
 
     public void setGolden(boolean golden) {
         Log.d(TAG, "setGolden: " + golden);
+        this.hexImage.setAlpha(ALPHA_FULL);
         this.isGolden = golden;
         processGolden();
     }
 
-    public void processGolden() {
+    private void processGolden() {
         if (this.isGolden) {
-            .setColorFilter(getResources().getColor(R.color.attrColorGolden));
+//            hexImage.setColorFilter(ContextCompat.getColor(context, R.color.COLOR_YOUR_COLOR), android.graphics.PorterDuff.Mode.MULTIPLY);
+            hexImage.setColorFilter(getResources().getColor(R.color.attrColorGolden), android.graphics.PorterDuff.Mode.MULTIPLY);
         } else {
-            hexImage.setColorFilter(getResources().getColor(R.color.attrColorNotGolden));
+            hexImage.setColorFilter(getResources().getColor(R.color.attrColorNotGolden), android.graphics.PorterDuff.Mode.MULTIPLY);
         }
     }
 
