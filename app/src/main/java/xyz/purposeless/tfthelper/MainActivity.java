@@ -25,9 +25,15 @@ public class MainActivity extends AppCompatActivity {
 		startActivity(new Intent(this, ItemActivity.class));
 	}
 
-	public void champsOnClick(View view) {
+	public void championBuilderOnClick(View view) {
 		startActivity(new Intent(this, ChampionBuilderActivity.class));
 	}
+
+	public void championDividerOnClick(View view) {
+//		startActivity(new Intent(this, ChampionDividerActivity.class));
+	}
+
+
 
     public static Context getContext() {
         return mContext;

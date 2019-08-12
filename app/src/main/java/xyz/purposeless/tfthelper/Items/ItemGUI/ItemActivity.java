@@ -10,7 +10,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import java.util.ArrayList;
 
-import xyz.purposeless.tfthelper.Exception.TFTRuntimeException;
+import xyz.purposeless.tfthelper.Utils.Exception.TFTRuntimeException;
 import xyz.purposeless.tfthelper.Items.TFTItemBaseEnum;
 import xyz.purposeless.tfthelper.Items.TFTItemEnum;
 import xyz.purposeless.tfthelper.R;

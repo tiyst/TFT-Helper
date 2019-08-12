@@ -56,7 +56,7 @@
             android:layout_height="75dp"
             android:layout_weight="1"
             android:gravity="clip_horizontal|center|clip_vertical"
-            android:onClick="champsOnClick"
+            android:onClick="championBuilderOnClick"
             android:text="@string/championsButtonText"
             android:textColorHighlight="#8BC34A"
             android:textColorLink="#3C27B0"

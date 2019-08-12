@@ -1,4 +1,4 @@
-package xyz.purposeless.tfthelper.Exception;
+package xyz.purposeless.tfthelper.Utils.Exception;
 
 
 public class TFTException extends Exception {

@@ -86,7 +86,9 @@ public class ChampionAttributeFragment extends Fragment {
 
     public void setGolden(boolean golden) {
         Log.d(TAG, "setGolden: " + golden);
-        this.hexImage.setAlpha(ALPHA_FULL);
+        if (golden) {
+            this.hexImage.setAlpha(ALPHA_FULL);
+        }
         this.isGolden = golden;
         processGolden();
     }

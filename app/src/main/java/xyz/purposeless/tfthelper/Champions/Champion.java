@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import xyz.purposeless.tfthelper.Utils.Exception.TFTRuntimeException;
 import xyz.purposeless.tfthelper.R;
 
 public enum Champion {
@@ -66,19 +67,34 @@ public enum Champion {
 
     private int cost;
     private String name;
-    private List<ChampionOrigin> origin;
+    private List<ChampionOrigin> origins;
     private List<ChampionClass> classes;
 
-//    Champion() {
-//        //mw implementation
-//    }
+    Champion(int imgID, int cost, String name, ChampionAttribute... attributes) {
+        //TODO move to this constructor, will make creating / editing champions much easier
 
-    Champion(int imgID, int cost, String name, ChampionOrigin origin, ChampionClass... classes) {
         this.championImageID = imgID;
         this.cost = cost;
         this.name = name;
-        this.origin = new ArrayList<>();
-        this.origin.add(origin);
+        this.origins = new ArrayList<>();
+        this.classes = new ArrayList<>();
+        for (ChampionAttribute attr : attributes) {
+            if (attr instanceof ChampionOrigin) {
+                origins.add((ChampionOrigin) attr);
+            } else if (attr instanceof ChampionClass) {
+                classes.add((ChampionClass) attr);
+            } else {
+                throw new TFTRuntimeException("Error parsing champion attributes. Please report this to the developer at tiystw@gmail.com");
+            }
+        }
+    }
+
+    Champion(int imgID, int cost, String name, ChampionOrigin origins, ChampionClass... classes) {
+        this.championImageID = imgID;
+        this.cost = cost;
+        this.name = name;
+        this.origins = new ArrayList<>();
+        this.origins.add(origins);
         this.classes = new ArrayList<>();
         this.classes.addAll(Arrays.asList(classes));
     }
@@ -87,8 +103,8 @@ public enum Champion {
         this.championImageID = imgID;
         this.cost = cost;
         this.name = name;
-        this.origin = new ArrayList<>();
-        this.origin.addAll(Arrays.asList(origins));
+        this.origins = new ArrayList<>();
+        this.origins.addAll(Arrays.asList(origins));
         this.classes = new ArrayList<>();
         this.classes.addAll(Arrays.asList(classes));
     }
@@ -106,7 +122,7 @@ public enum Champion {
     }
 
     public List<ChampionOrigin> getOrigin() {
-        return origin;
+        return origins;
     }
 
     public List<ChampionClass> getClasses() {
@@ -150,5 +166,14 @@ public enum Champion {
             }
         }
         return champions;
+    }
+
+    public static Champion[] getUsedChampions() {
+        ArrayList<Champion> champions = (ArrayList<Champion>) Arrays.asList(Champion.values());
+        champions.remove(Champion.PLACEHOLDER);
+
+
+        //TODO this can be updated as patches go on.
+        return (Champion[]) champions.toArray();
     }
 }
