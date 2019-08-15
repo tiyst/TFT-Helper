@@ -26,6 +26,9 @@ public class ItemActivity extends AppCompatActivity implements ItemBaseFragment.
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_items);
+		if (getSupportActionBar() != null) {
+			getSupportActionBar().hide();
+		}
 		itemController = new ItemController();
 		drawBaseItems();
 	}

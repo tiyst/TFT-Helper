@@ -9,6 +9,7 @@ public enum ChampionOrigin implements ChampionAttribute {
 	DRAGON(R.drawable.origin_dragon, "Dragon", 2),
 	EXILE(R.drawable.origin_exile, "Exile", 1),
 	GLACIAL(R.drawable.origin_glacial, "Glacial", 2, 4, 6),
+	HEXTECH(R.drawable.question_mark, "Hextech", 2, 4),
 	IMPERIAL(R.drawable.origin_imperial, "Imperial", 2, 4),
 	NINJA(R.drawable.origin_ninja, "Ninja", 1, 4),
 	NOBLE(R.drawable.origin_noble, "Noble", 3, 6),
@@ -47,9 +48,10 @@ public enum ChampionOrigin implements ChampionAttribute {
 
 	@Override
 	public int getNextRequirement(int current) {
+		//FIXME this returns wrong value with attrs with more steps than one. (or does it)
 		for (int i = 0; i < effectRequired.length; i++) {
 			//Is bigger or maxed
-			if (current < effectRequired[i] || current == effectRequired[effectRequired.length - 1]) {
+			if (current <= effectRequired[i] || current == effectRequired[effectRequired.length - 1]) {
 				return effectRequired[i];
 			}
 		}
@@ -63,11 +65,11 @@ public enum ChampionOrigin implements ChampionAttribute {
 			return REQUIREMENT_STATUS.FULL;
 		} else if (count >= effectRequired[0]) {
 			return REQUIREMENT_STATUS.FULFILLED;
-		} else if (count > 0) {
+		} else if (count >= 0) {
 			return REQUIREMENT_STATUS.NOT_FULFILLED;
 		}
 
-		throw new TFTRuntimeException("Requirements current count is negative (proly), and it shouldn't be LOL");
+		throw new TFTRuntimeException("Origin requirements current count is negative (proly), and it shouldn't be LOL");
 	}
 
 	public static ChampionOrigin fromString(String org) {

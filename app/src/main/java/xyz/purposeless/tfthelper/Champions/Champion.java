@@ -18,6 +18,7 @@ public enum Champion {
     BLITZCRANK(R.drawable.champion_blitzcrank, 2, "Blizcrank", ChampionOrigin.ROBOT, ChampionClass.BRAWLER),
     BRAND(R.drawable.champion_brand, 4, "Brand", ChampionOrigin.DEMON, ChampionClass.ELEMENTALIST),
     BRAUM(R.drawable.champion_braum, 2, "Braum", ChampionOrigin.GLACIAL, ChampionClass.GUARDIAN),
+    CAMILLE(R.drawable.champion_camille, 1, "Camille", ChampionOrigin.HEXTECH, ChampionClass.BLADEMASTER),
     CHOGATH(R.drawable.champion_chogath, 4, "Cho'Gath", ChampionOrigin.VOID, ChampionClass.BRAWLER),
     DARIUS(R.drawable.champion_darius, 1, "Darius", ChampionOrigin.IMPERIAL, ChampionClass.KNIGHT),
     DRAVEN(R.drawable.champion_draven, 4, "Draven", ChampionOrigin.IMPERIAL, ChampionClass.BLADEMASTER),
@@ -28,6 +29,8 @@ public enum Champion {
     GAREN(R.drawable.champion_garen, 1, "Garen", ChampionOrigin.NOBLE, ChampionClass.KNIGHT),
     GNAR(R.drawable.champion_gnar, 4, "Gnar", new ChampionOrigin[] {ChampionOrigin.YORDLE, ChampionOrigin.WILD}, ChampionClass.SHAPESHIFTER),
     GRAVES(R.drawable.champion_graves, 1, "Graves", ChampionOrigin.PIRATE, ChampionClass.GUNSLINGER),
+    JAYCE(R.drawable.champion_jayce, 2, "Jayce", ChampionOrigin.HEXTECH, ChampionClass.SHAPESHIFTER),
+    JINX(R.drawable.champion_jinx, 4, "Jinx", ChampionOrigin.HEXTECH, ChampionClass.GUNSLINGER),
     KARTHUS(R.drawable.champion_karthus, 5, "Karthus", ChampionOrigin.PHANTOM, ChampionClass.SORCERER),
     KASSADIN(R.drawable.champion_kassadin, 1, "Kassadin", ChampionOrigin.VOID, ChampionClass.SORCERER),
     KATARINA(R.drawable.champion_katarina, 3, "Katarina", ChampionOrigin.IMPERIAL, ChampionClass.ASSASSIN),
@@ -56,6 +59,7 @@ public enum Champion {
     VARUS(R.drawable.champion_varus, 2, "Varus", ChampionOrigin.DEMON, ChampionClass.RANGER),
     VAYNE(R.drawable.champion_vayne, 1, "Vayne", ChampionOrigin.NOBLE, ChampionClass.RANGER),
     VEIGAR(R.drawable.champion_veigar, 3, "Veigar", ChampionOrigin.YORDLE, ChampionClass.SORCERER),
+    VI(R.drawable.champion_vi, 3, "Vi", ChampionOrigin.HEXTECH, ChampionClass.BRAWLER),
     VOLIBEAR(R.drawable.champion_volibear, 3, "Volibear", ChampionOrigin.GLACIAL, ChampionClass.BRAWLER),
     WARWICK(R.drawable.champion_warwick, 1, "Warwick", ChampionOrigin.WILD, ChampionClass.BRAWLER),
     YASUO(R.drawable.champion_yasuo, 5, "Yasuo", ChampionOrigin.EXILE, ChampionClass.BLADEMASTER),
@@ -84,7 +88,8 @@ public enum Champion {
             } else if (attr instanceof ChampionClass) {
                 classes.add((ChampionClass) attr);
             } else {
-                throw new TFTRuntimeException("Error parsing champion attributes. Please report this to the developer at tiystw@gmail.com");
+                throw new TFTRuntimeException("Error parsing champion attributes. " +
+                        "\nPlease report this to the developer at tiystw@gmail.com");
             }
         }
     }

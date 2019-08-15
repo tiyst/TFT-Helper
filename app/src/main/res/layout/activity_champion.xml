@@ -48,14 +48,11 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <androidx.gridlayout.widget.GridLayout
+        <LinearLayout
             android:id="@+id/ownedAttributesLayout"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            app:columnCount="7"
-            app:rowCount="7">
-
-        </androidx.gridlayout.widget.GridLayout>
+            android:orientation="horizontal"></LinearLayout>
     </HorizontalScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

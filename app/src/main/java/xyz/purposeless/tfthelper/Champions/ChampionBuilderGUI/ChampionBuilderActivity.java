@@ -154,7 +154,7 @@ public class ChampionBuilderActivity extends AppCompatActivity implements
 				addAttributeFragment(attr);
 			}
 
-//            ChampionAttribute.getRequirementStatus(count, attr)
+//            ChampionAttribute.getRequirementStatus(count, attr) //TODO migrade to this method
 			switch (attr.meetsRequirements(count)) {
 				case FULL:
 					fullAttributeFragment(attr);
@@ -224,6 +224,7 @@ public class ChampionBuilderActivity extends AppCompatActivity implements
 			ChampionAttributeFragment f = (ChampionAttributeFragment) getSupportFragmentManager().findFragmentByTag(attr.getName());
 			if (f != null) {
 				f.setGolden(false);
+				f.setImageAlpha(ChampionAttributeFragment.ALPHA_FULL);
 			} else {
 				Log.d(TAG, "notFullAttributeFragment: to unmake golden attribute not found" + attr.getName());
 			}
@@ -233,6 +234,7 @@ public class ChampionBuilderActivity extends AppCompatActivity implements
 		void fullAttributeFragment(ChampionAttribute attr) {
 			ChampionAttributeFragment f = (ChampionAttributeFragment) getSupportFragmentManager().findFragmentByTag(attr.getName());
 			if (f != null) {
+				f.setImageAlpha(ChampionAttributeFragment.ALPHA_FULL);
 				f.setGolden(true);
 			} else {
 				Log.d(TAG, "fullAttributeFragment: to make golden attribute not found" + attr.getName());
