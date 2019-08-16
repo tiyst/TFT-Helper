@@ -50,7 +50,7 @@
             android:visibility="visible" />
 
         <Button
-            android:id="@+id/championsButton"
+            android:id="@+id/championsBuilderButton"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
             android:layout_height="75dp"
@@ -58,6 +58,19 @@
             android:gravity="clip_horizontal|center|clip_vertical"
             android:onClick="championBuilderOnClick"
             android:text="@string/championsButtonText"
+            android:textColorHighlight="#8BC34A"
+            android:textColorLink="#3C27B0"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/championsHolderButton"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_weight="1"
+            android:gravity="clip_horizontal|center|clip_vertical"
+            android:onClick="championDividerOnClick"
+            android:text="@string/champions_info_button_text"
             android:textColorHighlight="#8BC34A"
             android:textColorLink="#3C27B0"
             android:visibility="visible" />

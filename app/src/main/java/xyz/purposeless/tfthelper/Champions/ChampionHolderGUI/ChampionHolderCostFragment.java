@@ -1,18 +1,16 @@
-package xyz.purposeless.tfthelper.Champions.ChampionDividerGUI;
+package xyz.purposeless.tfthelper.Champions.ChampionHolderGUI;
 
 import android.content.Context;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import java.util.List;
 
@@ -20,7 +18,7 @@ import xyz.purposeless.tfthelper.Champions.Champion;
 import xyz.purposeless.tfthelper.Champions.ChampionGUIElements.ChampionFragment;
 import xyz.purposeless.tfthelper.R;
 
-public class ChampionHolderCostFragment extends Fragment {
+public class ChampionHolderCostFragment extends ChampionHolder {
     private static final String ARG_COST = "paramCost";
 
     private int championCost;

@@ -8,6 +8,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import xyz.purposeless.tfthelper.Champions.ChampionBuilderGUI.ChampionBuilderActivity;
+import xyz.purposeless.tfthelper.Champions.ChampionHolderGUI.ChampionHolderActivity;
 import xyz.purposeless.tfthelper.Items.ItemGUI.ItemActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	public void championDividerOnClick(View view) {
-//		startActivity(new Intent(this, ChampionDividerActivity.class));
+		startActivity(new Intent(this, ChampionHolderActivity.class));
 	}
 
 

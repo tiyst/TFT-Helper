@@ -110,4 +110,5 @@
     <string name="championAlreadyPresent">  is already in your team!</string>
     <string name="champion_holder_cost_image">Champion Holder Cost Image</string>
     <string name="title_activity_champion_divider">ChampionDividerActivity</string>
+    <string name="champions_info_button_text">Champions info</string>
 </resources>
