@@ -2,10 +2,13 @@ package xyz.purposeless.tfthelper.Champions.ChampionHolderGUI;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,12 +22,15 @@ import xyz.purposeless.tfthelper.Champions.ChampionGUIElements.ChampionFragment;
 import xyz.purposeless.tfthelper.R;
 
 public class ChampionHolderCostFragment extends ChampionHolder {
+    private static final String TAG = "ChampionHolderCostFrag";
     private static final String ARG_COST = "paramCost";
 
     private int championCost;
-    private List<Champion> Champions;
 
     private onChampionHolderCostFragment mListener;
+    private ImageView costImage;
+    private TextView costText;
+    private LinearLayout championsLayout;
 
     public ChampionHolderCostFragment() {
         // Required empty public constructor
@@ -72,9 +78,20 @@ public class ChampionHolderCostFragment extends ChampionHolder {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        this.costImage = view.findViewById(R.id.championHolderCostImage);
+        this.costText = view.findViewById(R.id.championHolderCost);
+        this.championsLayout = view.findViewById(R.id.heldChampionsCost);
+
         view.setOnClickListener(view1 -> onChampionHolderClick());
-        fillWithChampions(view);
+//        fillWithChampions(view);
+        setCostIcon();
         super.onViewCreated(view, savedInstanceState);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        fillWithChampions();
+        super.onActivityCreated(savedInstanceState);
     }
 
     @Override
@@ -83,24 +100,40 @@ public class ChampionHolderCostFragment extends ChampionHolder {
         mListener = null;
     }
 
-    private void fillWithChampions(View view) {
+    @Override
+    public void fillWithChampions() {
         List<Champion> champions = Champion.getByCost(championCost);
-        LinearLayout linearLayout = view.findViewById(R.id.heldChampionsCost);
 
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
+        Log.d(TAG, "fillWithChampions: adding champions to id " + this.championsLayout.getId());
         for (Champion champ : champions) {
-            fragmentTransaction.add(linearLayout.getId(), ChampionFragment.newInstance(champ.getName()));
+            fragmentTransaction.add(this.championsLayout.getId(), ChampionFragment.newInstance(champ.getName()));
         }
         fragmentTransaction.commitNow();
     }
 
-    private void addChampionFragment(Champion champion) {
-
-    }
-
     public interface onChampionHolderCostFragment {
         void onChampionHolderCostFragmentInteraction();
+    }
+
+    private void setCostIcon() {
+        this.costText.setText(this.championCost + " gold");
+        switch (this.championCost) {
+            case 1: this.costImage.setImageAlpha(0); //transparent (no icon)
+                break;
+            case 2: this.costImage.setImageResource(R.drawable.tier2);
+                break;
+            case 3: this.costImage.setImageResource(R.drawable.tier3);
+                break;
+            case 4: this.costImage.setImageResource(R.drawable.tier4);
+                break;
+            case 5: this.costImage.setImageResource(R.drawable.tier5);
+                break;
+
+            default:
+                Log.d(TAG, "setCostIcon: wrong champion cost" + this.championCost);
+        }
     }
 }

@@ -19,10 +19,10 @@ public class ChampionHolderAttributeFragment extends ChampionHolder {
 		// Required empty public constructor
 	}
 
-	public static ChampionHolderAttributeFragment newInstance(String param1, String param2) {
+	public static ChampionHolderAttributeFragment newInstance(ChampionAttribute attr) {
 		ChampionHolderAttributeFragment fragment = new ChampionHolderAttributeFragment();
 		Bundle args = new Bundle();
-		args.putString(ARG_ATTR_PARAM, param1);
+		args.putString(ARG_ATTR_PARAM, attr.getName());
 		fragment.setArguments(args);
 		return fragment;
 	}
@@ -43,4 +43,8 @@ public class ChampionHolderAttributeFragment extends ChampionHolder {
 		return inflater.inflate(R.layout.fragment_champion_holder_attribute, container, false);
 	}
 
+	@Override
+	public void fillWithChampions() {
+
+	}
 }

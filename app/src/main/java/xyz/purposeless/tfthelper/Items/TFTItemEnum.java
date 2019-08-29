@@ -3,8 +3,12 @@ package xyz.purposeless.tfthelper.Items;
 import android.content.Context;
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import xyz.purposeless.tfthelper.MainActivity;
 import xyz.purposeless.tfthelper.R;
+import xyz.purposeless.tfthelper.Utils.Exception.TFTRuntimeException;
 
 import static xyz.purposeless.tfthelper.Items.TFTItemBaseEnum.BFSword;
 import static xyz.purposeless.tfthelper.Items.TFTItemBaseEnum.ChainVest;
@@ -12,13 +16,16 @@ import static xyz.purposeless.tfthelper.Items.TFTItemBaseEnum.GiantsBelt;
 import static xyz.purposeless.tfthelper.Items.TFTItemBaseEnum.NLRod;
 import static xyz.purposeless.tfthelper.Items.TFTItemBaseEnum.NegatronCloak;
 import static xyz.purposeless.tfthelper.Items.TFTItemBaseEnum.RecurveBow;
+import static xyz.purposeless.tfthelper.Items.TFTItemBaseEnum.SparringGloves;
 import static xyz.purposeless.tfthelper.Items.TFTItemBaseEnum.Spatula;
 import static xyz.purposeless.tfthelper.Items.TFTItemBaseEnum.TearOfGoddess;
 
 public enum TFTItemEnum {
-	InfinityEdge(R.drawable.itemcombined_inifinityedge, R.string.infinityEdge, R.string.infinityEdgeDesc, new TFTItemBaseEnum[] {BFSword,BFSword}),
+	LordsEdge(R.drawable.itemcombined_lordsedge, R.string.lorgsEdge, R.string.lorgsEdgeDesc, new TFTItemBaseEnum[] {BFSword,BFSword}),
+//	InifinityEdge(R.drawable.itemcombined_inifinityedge, R.string.infinityEdge, R.string.infinityEdgeDesc, new TFTItemBaseEnum[] {BFSword,BFSword}),
 	HextechGunblade(R.drawable.itemcombined_hextechgunblade, R.string.hextechGunblade, R.string.hextechGunbladeDesc, new TFTItemBaseEnum[] {BFSword,NLRod}),
-	SwordOfTheDivine(R.drawable.itemcombined_sworddivine, R.string.swordOfDivine, R.string.swordOfDivineDesc, new TFTItemBaseEnum[] {BFSword,RecurveBow}),
+//	SwordOfTheDivine(R.drawable.itemcombined_sworddivine, R.string.swordOfDivine, R.string.swordOfDivineDesc, new TFTItemBaseEnum[] {BFSword,RecurveBow}),
+	LastWhisper(R.drawable.itemcombined_lastwhisper, R.string.lastWhisper, R.string.lastWhisperDesc, new TFTItemBaseEnum[] {BFSword,RecurveBow}),
 	SpearOfShojin(R.drawable.itemcombined_spearofshojin, R.string.spearOfShojin, R.string.spearOfShojinDesc, new TFTItemBaseEnum[] {BFSword,TearOfGoddess}),
 	GuardianAngel(R.drawable.itemcombined_guardianangel, R.string.guardianAngel, R.string.guardianAngelDesc, new TFTItemBaseEnum[] {BFSword,ChainVest}),
 	Bloodthirster(R.drawable.itemcombined_bloodthirster, R.string.bloodthirster, R.string.bloodthirsterDesc, new TFTItemBaseEnum[] {BFSword,NegatronCloak}),
@@ -58,7 +65,18 @@ public enum TFTItemEnum {
 	WarmogsArmor(R.drawable.itemcombined_warmogs, R.string.warmogs, R.string.warmogsDesc, new TFTItemBaseEnum[] {GiantsBelt,GiantsBelt}),
 	FrozenMallet(R.drawable.itemcombined_frozenmallet, R.string.frozenMallet, R.string.frozenMalletDesc, new TFTItemBaseEnum[] {GiantsBelt,Spatula}),
 
-	ForceOfNature(R.drawable.itemcombined_fon, R.string.forceOfNature, R.string.forceOfNatureDesc, new TFTItemBaseEnum[] {Spatula,Spatula});
+	ForceOfNature(R.drawable.itemcombined_fon, R.string.forceOfNature, R.string.forceOfNatureDesc, new TFTItemBaseEnum[] {Spatula,Spatula}),
+
+	ThiefsGloves(R.drawable.itemcombined_thiefsgloves, R.string.thiefsGloves, R.string.thiefsGlovesDesc, new TFTItemBaseEnum[] {SparringGloves, SparringGloves}),
+	HandOfJustice(R.drawable.itemcombined_handofjustice, R.string.handOfJustice, R.string.handOfJusticeDesc, new TFTItemBaseEnum[] {SparringGloves,TearOfGoddess}),
+	InfinityEdge(R.drawable.itemcombined_inifinityedge, R.string.infinityEdge, R.string.infinityEdgeDesc, new TFTItemBaseEnum[] {SparringGloves, BFSword}),
+	ArcaneGauntlet(R.drawable.itemcombined_arcanegauntlet, R.string.arcaneGauntlet, R.string.arcaneGauntletDesc, new TFTItemBaseEnum[] {SparringGloves,NLRod}),
+	Quicksilver(R.drawable.itemcombined_quicksilver, R.string.quicksilver, R.string.quicksilverDesc, new TFTItemBaseEnum[] {SparringGloves, NegatronCloak}),
+	IceborneGauntlet(R.drawable.itemcombined_icebornegauntlet, R.string.iceborneGauntlet, R.string.iceborneGauntletDesc, new TFTItemBaseEnum[] {SparringGloves, ChainVest}),
+	Backhand(R.drawable.itemcombined_backhand, R.string.backhand, R.string.backhandDesc, new TFTItemBaseEnum[] {SparringGloves, GiantsBelt}),
+	RepeatingCrossbow(R.drawable.itemcombined_repeatingcrossbow, R.string.repeatingCrossbow, R.string.repeatingCrossbowDesc, new TFTItemBaseEnum[] {SparringGloves, RecurveBow}),
+	Mittens(R.drawable.itemcombined_mittens, R.string.mittens, R.string.mittensDesc, new TFTItemBaseEnum[] {SparringGloves, Spatula});
+
 
 	private static final String TAG = "TFTItemEnum";
 
@@ -66,7 +84,6 @@ public enum TFTItemEnum {
 	private String mItemName;
 	private String mItemDescription;
 	private TFTItemBaseEnum[] mBaseItems;
-	private boolean isCombined;
 
 	private Context context = MainActivity.getContext();
 
@@ -74,13 +91,9 @@ public enum TFTItemEnum {
 	TFTItemEnum(int itemImageID, int itemNameID, int itemDescID, TFTItemBaseEnum[] mBaseItems) {
 		this.mItemImage = itemImageID;
 
-		this.mItemName = context.getString(itemNameID);//itemName;
-		this.mItemDescription = context.getString(itemDescID);//itemDescription;
-
-		this.isCombined = (mBaseItems != null);
-		if (isCombined) {
-			this.mBaseItems = mBaseItems;
-		}
+		this.mItemName = context.getString(itemNameID); //itemName;
+		this.mItemDescription = context.getString(itemDescID); //itemDescription;
+		this.mBaseItems = mBaseItems;
 	}
 
 	public int getItemImageID() {
@@ -99,9 +112,6 @@ public enum TFTItemEnum {
 		return mBaseItems;
 	}
 
-	public boolean isCombined() {
-		return isCombined;
-	}
 
 	public static TFTItemEnum fromString(String text) {
 		for (TFTItemEnum item : TFTItemEnum.values()) {
@@ -109,7 +119,8 @@ public enum TFTItemEnum {
 				return item;
 			}
 		}
-		return null;
+		throw new TFTRuntimeException("Item " + text + " not found\ncode: TIE");
+//		return null;
 	}
 
 	public static TFTItemEnum combineBaseItems(TFTItemBaseEnum item1, TFTItemBaseEnum item2) {
@@ -127,5 +138,12 @@ public enum TFTItemEnum {
 
 	public boolean isMadeOf(TFTItemBaseEnum item) {
 		return (this.mBaseItems[0] == item || this.mBaseItems[1] == item);
+	}
+
+	public static List<TFTItemEnum> getActualValues() {
+		List<TFTItemEnum> usedItems = new ArrayList<>();
+
+//		usedItems.remove()
+		return usedItems;
 	}
 }

@@ -13,7 +13,8 @@ public enum TFTItemBaseEnum {
 	ChainVest(R.drawable.item_vest, R.string.chainVest, R.string.chainVestDesc),
 	NegatronCloak(R.drawable.item_negatron, R.string.negatronCloak, R.string.negatronCloakDesc),
 	GiantsBelt(R.drawable.item_giantsbelt, R.string.giantsBelt, R.string.giantsBeltDesc),
-	Spatula(R.drawable.item_spatula, R.string.spatula, R.string.spatulaDesc);
+	Spatula(R.drawable.item_spatula, R.string.spatula, R.string.spatulaDesc),
+	SparringGloves(R.drawable.item_sparringgloves, R.string.sparringGloves, R.string.sparringGlovesDesc);
 
 
 

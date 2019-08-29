@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import xyz.purposeless.tfthelper.Champions.ChampionBuilderGUI.ChampionBuilderActivity;
 import xyz.purposeless.tfthelper.Champions.ChampionHolderGUI.ChampionHolderActivity;
-import xyz.purposeless.tfthelper.Items.ItemGUI.ItemActivity;
+import xyz.purposeless.tfthelper.Items.ItemInventoryGUI.ItemActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,6 +35,10 @@ public class MainActivity extends AppCompatActivity {
 
 	public void championDividerOnClick(View view) {
 		startActivity(new Intent(this, ChampionHolderActivity.class));
+	}
+
+	public void fabAboutClicked(View v) {
+
 	}
 
 

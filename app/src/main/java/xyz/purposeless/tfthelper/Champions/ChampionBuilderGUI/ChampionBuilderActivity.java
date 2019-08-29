@@ -48,9 +48,9 @@ public class ChampionBuilderActivity extends AppCompatActivity implements
 		//All champions
 		FragmentManager fragmentManager = getSupportFragmentManager();
 		FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-		for (int i = 0; i < Champion.values().length; i++) {
+		for (int i = 0; i < Champion.getUsedChampions().length; i++) {
 			fragmentTransaction.add(allChampionsLayout.getId(),
-					ChampionFragment.newInstance(Champion.values()[i].getName()));
+					ChampionFragment.newInstance(Champion.getUsedChampions()[i].getName()));
 		}
 		fragmentTransaction.commitNow();
 	}
@@ -154,7 +154,7 @@ public class ChampionBuilderActivity extends AppCompatActivity implements
 				addAttributeFragment(attr);
 			}
 
-//            ChampionAttribute.getRequirementStatus(count, attr) //TODO migrade to this method
+//            ChampionAttribute.getRequirementStatus(count, attr) //TODO migrate to this method
 			switch (attr.meetsRequirements(count)) {
 				case FULL:
 					fullAttributeFragment(attr);

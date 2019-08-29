@@ -16,8 +16,6 @@ public interface ChampionAttribute {
 
     REQUIREMENT_STATUS meetsRequirements(int count);
 
-
-
     //TODO migrate to this use
     static REQUIREMENT_STATUS getRequirementStatus(int count, ChampionAttribute attr) {
         int[] effectRequired = attr.getBonusReq();

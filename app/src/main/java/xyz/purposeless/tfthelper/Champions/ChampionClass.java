@@ -66,13 +66,19 @@ public enum ChampionClass implements ChampionAttribute {
 
     @Override
     public int getNextRequirement(int current) {
-        for (int i = 0; i < effectRequired.length; i++) {
-            //Is bigger or maxed
-            if (current < effectRequired[i] || current == effectRequired[effectRequired.length - 1]) {
-                return effectRequired[i];
+        //TODO same as in ChampionOrigin, maybe move as static to champion attribute
+        if (current == effectRequired[effectRequired.length - 1]) {
+            return effectRequired[effectRequired.length - 1];
+        }
+
+        int nextReq = -1;
+        for (int i = effectRequired.length - 1; i > 0; i--) {
+            if (current < effectRequired[i]) {
+                nextReq = effectRequired[i];
+//				return effectRequired[i];
             }
         }
 
-        return effectRequired[effectRequired.length - 1];
+        return nextReq;
     }
 }

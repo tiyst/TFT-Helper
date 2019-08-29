@@ -5,7 +5,7 @@
     android:background="@drawable/gradient_animation"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Items.ItemGUI.ItemActivity">
+    tools:context=".Items.ItemInventoryGUI.ItemActivity">
 
     <HorizontalScrollView
         android:id="@+id/scrollItems"

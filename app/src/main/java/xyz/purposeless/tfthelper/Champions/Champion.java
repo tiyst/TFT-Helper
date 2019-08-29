@@ -174,11 +174,11 @@ public enum Champion {
     }
 
     public static Champion[] getUsedChampions() {
-        ArrayList<Champion> champions = (ArrayList<Champion>) Arrays.asList(Champion.values());
+        List<Champion> champions = new ArrayList<>(Arrays.asList(Champion.values()));
         champions.remove(Champion.PLACEHOLDER);
 
 
         //TODO this can be updated as patches go on.
-        return (Champion[]) champions.toArray();
+        return champions.toArray(new Champion[Champion.values().length-1]);
     }
 }
