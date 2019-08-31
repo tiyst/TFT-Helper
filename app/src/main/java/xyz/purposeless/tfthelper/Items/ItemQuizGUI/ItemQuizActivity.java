@@ -174,9 +174,9 @@ public class ItemQuizActivity extends AppCompatActivity implements ItemBaseFragm
 				Toast.makeText(this, R.string.itemQuizCorrect, Toast.LENGTH_SHORT).show();
 				setInteractionButtonText(getResources().getString(R.string.itemQuizNextItem));
 				break;
-			case WRONG: fail();
-				setInteractionButtonText(getResources().getString(R.string.itemQuizNextItem));
+			case WRONG: setInteractionButtonText(getResources().getString(R.string.itemQuizNextItem));
 				showCorrectItems();
+				fail();
 				break;
 			case DEFEAT: //defeat();
 				Toast.makeText(this, R.string.itemQuizOutOfLives, Toast.LENGTH_SHORT).show();
