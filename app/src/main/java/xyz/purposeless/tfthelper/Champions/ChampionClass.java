@@ -6,7 +6,7 @@ import xyz.purposeless.tfthelper.Utils.Exception.TFTRuntimeException;
 public enum ChampionClass implements ChampionAttribute {
 
     ASSASSIN(R.drawable.class_assassin, "Assassin", 3,6),
-    BLADEMASTER(R.drawable.class_blademaster, "Blademaster", 3,6),
+    BLADEMASTER(R.drawable.class_blademaster, "Blademaster", 3,6,9),
     BRAWLER(R.drawable.class_brawler, "Brawler", 2,4),
     ELEMENTALIST(R.drawable.class_elementalist, "Elementalist", 3),
     GUARDIAN(R.drawable.class_guardian, "Guardian", 2),
@@ -66,16 +66,14 @@ public enum ChampionClass implements ChampionAttribute {
 
     @Override
     public int getNextRequirement(int current) {
-        //TODO same as in ChampionOrigin, maybe move as static to champion attribute
         if (current == effectRequired[effectRequired.length - 1]) {
             return effectRequired[effectRequired.length - 1];
         }
 
         int nextReq = -1;
-        for (int i = effectRequired.length - 1; i > 0; i--) {
+        for (int i = effectRequired.length - 1; i >= 0; i--) {
             if (current < effectRequired[i]) {
                 nextReq = effectRequired[i];
-//				return effectRequired[i];
             }
         }
 

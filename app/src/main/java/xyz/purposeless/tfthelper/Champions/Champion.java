@@ -174,6 +174,7 @@ public enum Champion {
     }
 
     public static Champion[] getUsedChampions() {
+        //If you do not init with copy constructor it will be of fixed size and remove will crash the app
         List<Champion> champions = new ArrayList<>(Arrays.asList(Champion.values()));
         champions.remove(Champion.PLACEHOLDER);
 

@@ -48,16 +48,14 @@ public enum ChampionOrigin implements ChampionAttribute {
 
 	@Override
 	public int getNextRequirement(int current) {
-		//TODO same as in ChampionClass, maybe move as static to champion attribute
 		if (current == effectRequired[effectRequired.length - 1]) {
 			return effectRequired[effectRequired.length - 1];
 		}
 
 		int nextReq = -1;
-		for (int i = effectRequired.length - 1; i > 0; i--) {
+		for (int i = effectRequired.length - 1; i >= 0; i--) {
 			if (current < effectRequired[i]) {
 				nextReq = effectRequired[i];
-//				return effectRequired[i];
 			}
 		}
 

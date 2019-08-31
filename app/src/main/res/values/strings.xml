@@ -1,4 +1,5 @@
 <resources>
+    <string name="currentPatch">Patch 9.17</string>
     <string name="app_name">TFT Helper</string>
     <string name="itemsButton">Items</string>
     <string name="championsButtonText">Champion builder</string>
@@ -6,7 +7,7 @@
 
     <string name="placeholderText">Placeholder Text</string>
 
-    <!-- Item names-->
+    <!-- Base items-->
     <string name="bfsword">B.F. Sword</string>
     <string name="nlRod">Needlessly Large Rod</string>
     <string name="recurveBow">Recurve Bow</string>
@@ -15,6 +16,9 @@
     <string name="negatronCloak">Negatron Cloak</string>
     <string name="giantsBelt">Giant\'s Belt</string>
     <string name="spatula">Spatula</string>
+    <string name="sparringGloves">Sparring Gloves</string>
+
+    <!-- Combined items-->
     <string name="infinityEdge">Infinity Edge</string>
     <string name="hextechGunblade">Hextech Gunblade</string>
     <string name="swordOfDivine">Sword of the Divine</string>
@@ -51,7 +55,16 @@
     <string name="warmogs">Warmog\'s Armor</string>
     <string name="frozenMallet">Frozen Mallet</string>
     <string name="forceOfNature">Force of Nature</string>
-
+    <string name="thiefsGloves">Thief\'s Gloves</string>
+    <string name="handOfJustice">Hand of Justice</string>
+    <string name="arcaneGauntlet">Arcane Gauntlet</string>
+    <string name="quicksilver">Quicksilver</string>
+    <string name="iceborneGauntlet">Iceborne Gauntlet</string>
+    <string name="backhand">Backhand</string>
+    <string name="repeatingCrossbow">Repeating Crossbow</string>
+    <string name="mittens">Mittens</string>
+    <string name="lorgsEdge">Lord\'s Edge</string>
+    <string name="lastWhisper">Last Whisper</string>
 
     <!-- Item descriptions-->
     <string name="bfswordDesc">B.F. Sword \n+15 Attack Damage</string>
@@ -62,6 +75,8 @@
     <string name="negatronCloakDesc">Negatron Cloak \n+20 Magic Resistance</string>
     <string name="giantsBeltDesc">Giant\'s Belt \n+200 Health Points</string>
     <string name="spatulaDesc">It must do something…</string>
+    <string name="sparringGlovesDesc">+10% Dodge chance; +10% Crit chance</string>
+
     <string name="infinityEdgeDesc">Critical Strikes deal +100% damage.</string>
     <string name="hextechGunbladeDesc">Heal for 25% of all damage dealt.</string>
     <string name="swordOfDivineDesc">Every 1s gain a 5% chance to gain 100% Critical Strike.</string>
@@ -99,6 +114,17 @@
     <string name="frozenMalletDesc">Wearer is also a Glacial.</string>
     <string name="forceOfNatureDesc">Gain +1 team size.</string>
 
+    <string name="thiefsGlovesDesc">On round start, gain two temporary items. Their quality is based on your player level.</string>
+    <string name="handOfJusticeDesc">Wearer randomly gains either 40% increased damage or 40 life on hit until end of round.</string>
+    <string name="arcaneGauntletDesc">Your abilities can critically strike.</string>
+    <string name="quicksilverDesc">Prevents the next crowd control effect. Refreshes every 5 seconds.</string>
+    <string name="iceborneGauntletDesc">On dodge, create an expandable 30% attack speed slow zone.</string>
+    <string name="backhandDesc">The wearer starts combat with a spell shield. Stun the enemy that breaks the shield for a long time.</string>
+    <string name="repeatingCrossbowDesc">When the wearer dies, Repeating Crossbow passes to a new ally and they gain an additional 20% Crit chance and 20% Attack Speed. This stacks with each pass of the item.</string>
+    <string name="mittensDesc">Extra 10% Crit chance and 10% Dodge chance. Wearer is also a Yordle</string>
+    <string name="lorgsEdgeDesc">A champion holding Lord\'s Edge can\'t hold other items except temporary ones gained by this item. Lord\'s Edge cannot be given to a champion that already holds an item. On takedown, gain a BF Sword for the remainder of the round.</string>
+    <string name="lastWhisperDesc">Attacks can\'t miss and deal True Damage equal to 5% of the target\'s ßmaximum health</string>
+
 
     <string name="mainactivity_background_image">mainBackgroundContentDesc</string>
     <string name="itemname">itemName</string>
@@ -107,8 +133,18 @@
     <string name="inventoryText">Inventory</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="championAlreadyPresent">  is already in your team!</string>
+    <string name="championAlreadyPresent">is already in your team!</string>
     <string name="champion_holder_cost_image">Champion Holder Cost Image</string>
     <string name="title_activity_champion_divider">ChampionDividerActivity</string>
     <string name="champions_info_button_text">Champions info</string>
+    <string name="title_activity_champion_details">ChampionDetailsActivity</string>
+
+
+    <!-- Item Quiz -->
+    <string name="score">Score:</string>
+    <string name="itemQuizCorrect">Correct!</string>
+    <string name="itemQuizOutOfLives">You are out of lives!</string>
+    <string name="itemQuizNextItem">Next Item</string>
+    <string name="itemQuizTryAgain">Try Again</string>
+    <string name="itemQuizStartAgain">Start Again</string>
 </resources>
