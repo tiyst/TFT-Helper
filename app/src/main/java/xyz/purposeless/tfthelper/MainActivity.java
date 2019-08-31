@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import xyz.purposeless.tfthelper.Champions.ChampionBuilderGUI.ChampionBuilderActivity;
 import xyz.purposeless.tfthelper.Champions.ChampionHolderGUI.ChampionHolderActivity;
 import xyz.purposeless.tfthelper.Items.ItemInventoryGUI.ItemActivity;
+import xyz.purposeless.tfthelper.Items.ItemQuizGUI.ItemQuizActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,6 +28,10 @@ public class MainActivity extends AppCompatActivity {
 
 	public void itemsOnClick(View view) {
 		startActivity(new Intent(this, ItemActivity.class));
+	}
+
+	public void itemsQuizOnClick(View view) {
+		startActivity(new Intent(this, ItemQuizActivity.class));
 	}
 
 	public void championBuilderOnClick(View view) {

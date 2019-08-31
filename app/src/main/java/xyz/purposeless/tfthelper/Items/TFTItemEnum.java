@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import xyz.purposeless.tfthelper.MainActivity;
@@ -22,9 +23,8 @@ import static xyz.purposeless.tfthelper.Items.TFTItemBaseEnum.TearOfGoddess;
 
 public enum TFTItemEnum {
 	LordsEdge(R.drawable.itemcombined_lordsedge, R.string.lorgsEdge, R.string.lorgsEdgeDesc, new TFTItemBaseEnum[] {BFSword,BFSword}),
-//	InifinityEdge(R.drawable.itemcombined_inifinityedge, R.string.infinityEdge, R.string.infinityEdgeDesc, new TFTItemBaseEnum[] {BFSword,BFSword}),
 	HextechGunblade(R.drawable.itemcombined_hextechgunblade, R.string.hextechGunblade, R.string.hextechGunbladeDesc, new TFTItemBaseEnum[] {BFSword,NLRod}),
-//	SwordOfTheDivine(R.drawable.itemcombined_sworddivine, R.string.swordOfDivine, R.string.swordOfDivineDesc, new TFTItemBaseEnum[] {BFSword,RecurveBow}),
+	SwordOfTheDivine(R.drawable.itemcombined_sworddivine, R.string.swordOfDivine, R.string.swordOfDivineDesc, new TFTItemBaseEnum[] {BFSword,RecurveBow}),
 	LastWhisper(R.drawable.itemcombined_lastwhisper, R.string.lastWhisper, R.string.lastWhisperDesc, new TFTItemBaseEnum[] {BFSword,RecurveBow}),
 	SpearOfShojin(R.drawable.itemcombined_spearofshojin, R.string.spearOfShojin, R.string.spearOfShojinDesc, new TFTItemBaseEnum[] {BFSword,TearOfGoddess}),
 	GuardianAngel(R.drawable.itemcombined_guardianangel, R.string.guardianAngel, R.string.guardianAngelDesc, new TFTItemBaseEnum[] {BFSword,ChainVest}),
@@ -141,9 +141,10 @@ public enum TFTItemEnum {
 	}
 
 	public static List<TFTItemEnum> getActualValues() {
-		List<TFTItemEnum> usedItems = new ArrayList<>();
+		List<TFTItemEnum> usedItems = new ArrayList<>(Arrays.asList(TFTItemEnum.values()));
 
-//		usedItems.remove()
+		usedItems.remove(SwordOfTheDivine);
+		//TODO Used to keep up with patches
 		return usedItems;
 	}
 }
