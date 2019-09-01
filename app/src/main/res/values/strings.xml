@@ -147,4 +147,6 @@
     <string name="itemQuizNextItem">Next Item</string>
     <string name="itemQuizTryAgain">Try Again</string>
     <string name="itemQuizStartAgain">Start Again</string>
+    <string name="detailChampionSplash">Champion splash art in detail activity</string>
+    <string name="detailChampionName">Champion Name</string>
 </resources>

@@ -1,5 +1,6 @@
 package xyz.purposeless.tfthelper.Champions.ChampionHolderGUI;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.RadioGroup;
@@ -70,7 +71,7 @@ public class ChampionHolderActivity extends AppCompatActivity implements
 
     @Override
     public void onChampionInteraction(Champion champion) {
-
+        startActivity(new Intent(this, ChampionDetailActivity.class));
     }
 
     

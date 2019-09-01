@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AboutUsActivity"></activity>
+        <activity android:name=".Champions.ChampionHolderGUI.ChampionDetailActivity"></activity>
+        <activity android:name=".AboutUsActivity" />
         <activity android:name=".Items.ItemQuizGUI.ItemQuizActivity" />
         <activity android:name=".Champions.ChampionHolderGUI.ChampionHolderActivity" />
         <activity android:name=".Champions.ChampionBuilderGUI.ChampionBuilderActivity" />
