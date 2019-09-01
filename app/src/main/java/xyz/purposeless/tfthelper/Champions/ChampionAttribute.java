@@ -17,6 +17,8 @@ public interface ChampionAttribute {
 //    String[] getBonusStrings();
     int getNextRequirement(int current);//return current if max has been reached
 
+//    List<ChampionAttribute> getUsedValues();
+
 
     static REQUIREMENT_STATUS getRequirementStatus(int count, ChampionAttribute attr) {
         int[] effectRequired = attr.getBonusReq();

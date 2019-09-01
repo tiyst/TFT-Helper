@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!--    Classes  -->
+    <item type="id" name="Assassin"/>
+    <item type="id" name="Blademaster"/>
+    <item type="id" name="Brawler"/>
+    <item type="id" name="Elementalist"/>
+    <item type="id" name="Guardian"/>
+    <item type="id" name="Gunslinger"/>
+    <item type="id" name="Knight"/>
+    <item type="id" name="Ranger"/>
+    <item type="id" name="Shapeshifter"/>
+    <item type="id" name="Sorcerer"/>
+
+
+<!--    Origin   -->
+    <item type="id" name="Demon"/>
+    <item type="id" name="Dragon"/>
+    <item type="id" name="Exile"/>
+    <item type="id" name="Glacial"/>
+    <item type="id" name="Hextech"/>
+    <item type="id" name="Imperial"/>
+    <item type="id" name="Ninja"/>
+    <item type="id" name="Noble"/>
+    <item type="id" name="Phantom"/>
+    <item type="id" name="Pirate"/>
+    <item type="id" name="Robot"/>
+    <item type="id" name="Void"/>
+    <item type="id" name="Wild"/>
+    <item type="id" name="Yordle"/>
+
+</resources>

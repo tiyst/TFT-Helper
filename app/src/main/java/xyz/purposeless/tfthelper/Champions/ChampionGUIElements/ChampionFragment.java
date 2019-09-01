@@ -27,6 +27,10 @@ public class ChampionFragment extends Fragment {
 		// Required empty public constructor
 	}
 
+	public static ChampionFragment newInstance(Champion champ) {
+		return newInstance(champ.getName());
+	}
+
 	public static ChampionFragment newInstance(String champName) {
 		ChampionFragment fragment = new ChampionFragment();
 		Bundle args = new Bundle();

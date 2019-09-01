@@ -134,6 +134,10 @@ public enum Champion {
         return classes;
     }
 
+    public boolean hasAttribute(ChampionAttribute attr) {
+        return (this.getOrigin().contains(attr) || this.getClasses().contains(attr));
+    }
+
     public static Champion fromString(String name) {
         for (Champion champ : Champion.values()) {
             if (champ.getName().equals(name)) {
@@ -181,5 +185,16 @@ public enum Champion {
 
         //TODO this can be updated as patches go on.
         return champions.toArray(new Champion[Champion.values().length-1]);
+    }
+
+    public static ArrayList<Champion> getChampionsByAttribute(ChampionAttribute attr) {
+        ArrayList<Champion> champs = new ArrayList<>();
+
+        for (Champion champ : getUsedChampions()) {
+            if (champ.hasAttribute(attr)) {
+                champs.add(champ);
+            }
+        }
+        return champs;
     }
 }
