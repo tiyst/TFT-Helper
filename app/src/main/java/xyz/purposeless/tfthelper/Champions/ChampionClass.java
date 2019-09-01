@@ -1,7 +1,6 @@
 package xyz.purposeless.tfthelper.Champions;
 
 import xyz.purposeless.tfthelper.R;
-import xyz.purposeless.tfthelper.Utils.Exception.TFTRuntimeException;
 
 public enum ChampionClass implements ChampionAttribute {
 
@@ -50,18 +49,6 @@ public enum ChampionClass implements ChampionAttribute {
     @Override
     public int[] getBonusReq() {
         return effectRequired;
-    }
-
-    @Override
-    public REQUIREMENT_STATUS meetsRequirements(int count) {
-        if (count >= effectRequired[effectRequired.length-1]) {
-            return REQUIREMENT_STATUS.FULL;
-        } else if (count >= effectRequired[0]) {
-            return REQUIREMENT_STATUS.FULFILLED;
-        } else if (count >= 0){
-            return REQUIREMENT_STATUS.NOT_FULFILLED;
-        }
-        throw new TFTRuntimeException("Class requirements current count is negative (proly), and it shouldn't be LOL");
     }
 
     @Override

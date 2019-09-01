@@ -53,9 +53,7 @@ public class ChampionHolderCostFragment extends ChampionHolder {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_champion_holder_cost, container, false);
     }
 
@@ -81,16 +79,15 @@ public class ChampionHolderCostFragment extends ChampionHolder {
         this.costImage = view.findViewById(R.id.championHolderCostImage);
         this.costText = view.findViewById(R.id.championHolderCost);
         this.championsLayout = view.findViewById(R.id.heldChampionsCost);
+        this.championsLayout.setId(this.championCost);
 
         view.setOnClickListener(view1 -> onChampionHolderClick());
-//        fillWithChampions(view);
         setCostIcon();
         super.onViewCreated(view, savedInstanceState);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        fillWithChampions();
         super.onActivityCreated(savedInstanceState);
     }
 
@@ -109,7 +106,7 @@ public class ChampionHolderCostFragment extends ChampionHolder {
 
         Log.d(TAG, "fillWithChampions: adding champions to id " + this.championsLayout.getId());
         for (Champion champ : champions) {
-            fragmentTransaction.add(this.championsLayout.getId(), ChampionFragment.newInstance(champ.getName()));
+            fragmentTransaction.add(this.championCost, ChampionFragment.newInstance(champ.getName()));
         }
         fragmentTransaction.commitNow();
     }

@@ -106,7 +106,11 @@ public class ChampionHolderActivity extends AppCompatActivity implements
                 holders.add(newHolder);
                 transaction.add(R.id.championDividerLayout, newHolder);
             }
-            transaction.commit();
+            transaction.commitNow();
+
+            for (ChampionHolder hold : this.holders) {
+                hold.fillWithChampions();
+            }
         }
 
         private ChampionHolder[] getChampionHolders(ChampionHolder.CHOSEN_DIVIDER divider) {
@@ -117,7 +121,6 @@ public class ChampionHolderActivity extends AppCompatActivity implements
                 }
                 return holder;
             } else {
-            	//TODO Commit separately. Maybe they hold the reference to same layout if done at the same time.
                 List<ChampionHolder> holders = new ArrayList<>();
                 int size;
                 if (divider == ChampionHolder.CHOSEN_DIVIDER.ORIGIN) {

@@ -15,7 +15,7 @@ public enum Champion {
     ANIVIA(R.drawable.champion_anivia,5, "Anivia", ChampionOrigin.GLACIAL, ChampionClass.ELEMENTALIST),
     ASHE(R.drawable.champion_ashe, 3, "Ashe", ChampionOrigin.GLACIAL, ChampionClass.RANGER),
     AURELIONSOL(R.drawable.champion_aurelionsol, 4, "Aurelion Sol",ChampionOrigin.DRAGON, ChampionClass.SORCERER),
-    BLITZCRANK(R.drawable.champion_blitzcrank, 2, "Blizcrank", ChampionOrigin.ROBOT, ChampionClass.BRAWLER),
+    BLITZCRANK(R.drawable.champion_blitzcrank, 2, "Blitzcrank", ChampionOrigin.ROBOT, ChampionClass.BRAWLER),
     BRAND(R.drawable.champion_brand, 4, "Brand", ChampionOrigin.DEMON, ChampionClass.ELEMENTALIST),
     BRAUM(R.drawable.champion_braum, 2, "Braum", ChampionOrigin.GLACIAL, ChampionClass.GUARDIAN),
     CAMILLE(R.drawable.champion_camille, 1, "Camille", ChampionOrigin.HEXTECH, ChampionClass.BLADEMASTER),

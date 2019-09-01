@@ -1,7 +1,6 @@
 package xyz.purposeless.tfthelper.Champions;
 
 import xyz.purposeless.tfthelper.R;
-import xyz.purposeless.tfthelper.Utils.Exception.TFTRuntimeException;
 
 public enum ChampionOrigin implements ChampionAttribute {
 
@@ -60,19 +59,6 @@ public enum ChampionOrigin implements ChampionAttribute {
 		}
 
 		return nextReq;
-	}
-
-	@Override
-	public REQUIREMENT_STATUS meetsRequirements(int count) {
-		if (count >= effectRequired[effectRequired.length - 1]) {
-			return REQUIREMENT_STATUS.FULL;
-		} else if (count >= effectRequired[0]) {
-			return REQUIREMENT_STATUS.FULFILLED;
-		} else if (count >= 0) {
-			return REQUIREMENT_STATUS.NOT_FULFILLED;
-		}
-
-		throw new TFTRuntimeException("Origin requirements current count is negative (proly), and it shouldn't be LOL");
 	}
 
 	public static ChampionOrigin fromString(String org) {

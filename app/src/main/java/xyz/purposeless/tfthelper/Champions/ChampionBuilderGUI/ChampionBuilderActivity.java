@@ -154,8 +154,7 @@ public class ChampionBuilderActivity extends AppCompatActivity implements
 				addAttributeFragment(attr);
 			}
 
-//            ChampionAttribute.getRequirementStatus(count, attr) //TODO migrate to this method
-			switch (attr.meetsRequirements(count)) {
+			switch (ChampionAttribute.getRequirementStatus(count, attr)) {
 				case FULL:
 					fullAttributeFragment(attr);
 					break;
@@ -214,6 +213,7 @@ public class ChampionBuilderActivity extends AppCompatActivity implements
 
 			if (f != null) {
 				f.setImageAlpha(ChampionAttributeFragment.ALPHA_NOTFULL);
+				f.setGolden(false); //Necessary for cases when there is only one tier (Phantom, Pirate, ...)
 			} else {
 				Log.d(TAG, "transparentAttributeFragment: fragment is null " + attr.getName());
 			}
