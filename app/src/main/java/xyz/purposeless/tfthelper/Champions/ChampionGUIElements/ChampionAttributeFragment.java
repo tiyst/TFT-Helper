@@ -1,7 +1,5 @@
 package xyz.purposeless.tfthelper.Champions.ChampionGUIElements;
 
-import android.graphics.ColorFilter;
-import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,7 +9,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import xyz.purposeless.tfthelper.Champions.ChampionAttribute;
@@ -28,16 +25,24 @@ public class ChampionAttributeFragment extends Fragment {
     private ChampionAttribute attribute;
     private HexagonMaskView hexImage;
     private TextView currentNumberView;
+    private TextView delimeterView;
     private TextView nextNumberView;
 
     private int current;
     private int nextRequirement;
     private boolean isGolden = false;
+    private boolean numbersVisible = true;
 
 
     public ChampionAttributeFragment() {
         // Required empty public constructor
     }
+
+    public static ChampionAttributeFragment newInstance(ChampionAttribute attr) {
+        return newInstance(attr.getName());
+
+    }
+
 
     public static ChampionAttributeFragment newInstance(String originName) {
         ChampionAttributeFragment fragment = new ChampionAttributeFragment();
@@ -67,7 +72,15 @@ public class ChampionAttributeFragment extends Fragment {
         hexImage = view.findViewById(R.id.originImage);
         hexImage.setImageResource(attribute.getIconID());
         currentNumberView = view.findViewById(R.id.currentNumber);
+        delimeterView = view.findViewById(R.id.delimeter);
         nextNumberView = view.findViewById(R.id.nextNumber);
+
+        //In use in champion detail
+        if (!numbersVisible) {
+            this.currentNumberView.setVisibility(View.INVISIBLE);
+            this.nextNumberView.setVisibility(View.INVISIBLE);
+            this.delimeterView.setVisibility(View.INVISIBLE);
+        }
 
         super.onViewCreated(view, savedInstanceState);
     }
@@ -121,6 +134,10 @@ public class ChampionAttributeFragment extends Fragment {
     public void setNextRequirement(int nextRequirement) {
         this.nextNumberView.setText(String.valueOf(nextRequirement));
         this.nextRequirement = nextRequirement;
+    }
+
+    public void setNumbersVisibility(boolean visible) {
+        this.numbersVisible = visible;
     }
 
     public ChampionAttribute getAttribute() {

@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +26,7 @@ public class ChampionHolderActivity extends AppCompatActivity implements
         ChampionHolderCostFragment.onChampionHolderCostFragment,
         ChampionFragment.onChampFragmentInteractionListener {
     private static final String TAG = "ChampionHolderActivity";
+    public static final String CHAMP_NAME_TAG = "ChampionName";
 
     private HolderController controller;
     private RadioGroup radioGroup;
@@ -37,6 +39,8 @@ public class ChampionHolderActivity extends AppCompatActivity implements
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
+
+        MobileAds.initialize(this);
 
         AdView mAdView = findViewById(R.id.championBuilderAdView);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -83,7 +87,9 @@ public class ChampionHolderActivity extends AppCompatActivity implements
 
     @Override
     public void onChampionInteraction(Champion champion) {
-        startActivity(new Intent(this, ChampionDetailActivity.class));
+        Intent intent = new Intent(this, ChampionDetailActivity.class);
+        intent.putExtra(CHAMP_NAME_TAG, champion.getName());
+        startActivity(intent);
     }
 
     

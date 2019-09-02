@@ -79,6 +79,7 @@ public class ItemBaseFragment extends Fragment {
 			itemName.setText(tftItem.getItemName());
 		} catch (NullPointerException e) {
 			Log.d(TAG, "onViewCreated: TftItemEnum not initialized");
+			e.printStackTrace();
 		}
 		super.onViewCreated(view, savedInstanceState);
 	}

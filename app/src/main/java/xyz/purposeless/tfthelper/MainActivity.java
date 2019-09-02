@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 		animationDrawable.setExitFadeDuration(2000);
 		animationDrawable.start();
 
+
 		mContext = this;
 	}
 
