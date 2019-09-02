@@ -140,7 +140,8 @@ public class ItemActivity extends AppCompatActivity implements ItemBaseFragment.
 			if(f != null) {
 				resultItems.remove(item);
 				FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-				transaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+				//FIXME Will this help with leaving anim?
+//				transaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
 				transaction.remove(f);
 				transaction.commitNow();
 			}
@@ -159,7 +160,8 @@ public class ItemActivity extends AppCompatActivity implements ItemBaseFragment.
 			InventoryItemFragment f = (InventoryItemFragment) getSupportFragmentManager().findFragmentByTag(item.getItemName());
 			if(f != null) {
 				FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-				transaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+//				FIXME help?
+//				transaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
 				transaction.remove(f);
 				transaction.commitNow();
 			} else {

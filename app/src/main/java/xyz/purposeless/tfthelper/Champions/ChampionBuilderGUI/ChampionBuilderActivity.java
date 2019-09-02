@@ -9,6 +9,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.gridlayout.widget.GridLayout;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,8 +23,8 @@ import xyz.purposeless.tfthelper.Champions.ChampionClass;
 import xyz.purposeless.tfthelper.Champions.ChampionGUIElements.ChampionAttributeFragment;
 import xyz.purposeless.tfthelper.Champions.ChampionGUIElements.ChampionFragment;
 import xyz.purposeless.tfthelper.Champions.ChampionOrigin;
-import xyz.purposeless.tfthelper.Utils.Exception.TFTRuntimeException;
 import xyz.purposeless.tfthelper.R;
+import xyz.purposeless.tfthelper.Utils.Exception.TFTRuntimeException;
 
 public class ChampionBuilderActivity extends AppCompatActivity implements
 		ChampionFragment.onChampFragmentInteractionListener,
@@ -36,9 +39,15 @@ public class ChampionBuilderActivity extends AppCompatActivity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_champion);
 		controller = new ChampionController();
+
 		if (getSupportActionBar() != null) {
 			getSupportActionBar().hide();
 		}
+
+		AdView mAdView = findViewById(R.id.championBuilderAdView);
+		AdRequest adRequest = new AdRequest.Builder().build();
+		mAdView.loadAd(adRequest);
+
 		initChampions();
 	}
 

@@ -10,4 +10,7 @@
 
     <color name="attrColorGolden">#CF8227</color>
     <color name="attrColorNotGolden">#FFFFFF</color>
+
+    <color name="colorPurple_A400">#D500F9</color>
+    <color name="colorPurple_900">#4A148C</color>
 </resources>

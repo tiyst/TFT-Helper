@@ -62,6 +62,10 @@ public class ItemQuizActivity extends AppCompatActivity implements ItemBaseFragm
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_item_quiz);
 
+		if (getSupportActionBar() != null) {
+			getSupportActionBar().hide();
+		}
+
 		this.itemsToGuess = TFTItemEnum.getActualValues();
 		this.health = 3;
 		this.score = 0;

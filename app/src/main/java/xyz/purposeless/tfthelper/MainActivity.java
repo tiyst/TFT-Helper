@@ -2,10 +2,12 @@ package xyz.purposeless.tfthelper;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import xyz.purposeless.tfthelper.Champions.ChampionBuilderGUI.ChampionBuilderActivity;
 import xyz.purposeless.tfthelper.Champions.ChampionHolderGUI.ChampionHolderActivity;
@@ -23,6 +25,13 @@ public class MainActivity extends AppCompatActivity {
 		if (getSupportActionBar() != null) {
 			getSupportActionBar().hide();
 		}
+
+		ConstraintLayout constraintLayout = findViewById(R.id.mainParentLayout);
+		AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
+		animationDrawable.setEnterFadeDuration(5000);
+		animationDrawable.setExitFadeDuration(2000);
+		animationDrawable.start();
+
 		mContext = this;
 	}
 
@@ -45,8 +54,6 @@ public class MainActivity extends AppCompatActivity {
 	public void fabAboutClicked(View v) {
 
 	}
-
-
 
     public static Context getContext() {
         return mContext;

@@ -23,6 +23,7 @@ public interface ChampionAttribute {
     static REQUIREMENT_STATUS getRequirementStatus(int count, ChampionAttribute attr) {
         int[] effectRequired = attr.getBonusReq();
 
+        //FIXME Should I make a special case for ninjas?
         if (count >= effectRequired[effectRequired.length-1]) {
             return REQUIREMENT_STATUS.FULL;
         } else if (count >= effectRequired[0]) {

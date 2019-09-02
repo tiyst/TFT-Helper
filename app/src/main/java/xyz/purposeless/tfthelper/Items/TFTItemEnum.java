@@ -133,7 +133,7 @@ public enum TFTItemEnum {
 			}
 		}
 		Log.e(TAG, "combineBaseItems: ", new Exception("why have you forsaken me?"));
-		return null;
+		throw new TFTRuntimeException("items can't be combined:\n" + item1.getItemName() + "\n" + item2.toString());
 	}
 
 	public boolean isMadeOf(TFTItemBaseEnum item) {
