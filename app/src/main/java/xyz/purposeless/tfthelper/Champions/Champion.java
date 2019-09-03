@@ -46,6 +46,7 @@ public enum Champion {
     MORDEKAISER(R.drawable.champion_mordekaiser, 1, "Mordekaiser", ChampionOrigin.PHANTOM, ChampionClass.KNIGHT),
     MORGANA(R.drawable.champion_morgana, 3, "Morgana", ChampionOrigin.DEMON, ChampionClass.SORCERER),
     NIDALEE(R.drawable.champion_nidalee, 1, "Nidalee", ChampionOrigin.WILD, ChampionClass.SHAPESHIFTER),
+    PANTHEON(R.drawable.question_mark, 5, "Pantheon", ChampionOrigin.DRAGON, ChampionClass.GUARDIAN),
     POPPY(R.drawable.champion_poppy, 3, "Poppy", ChampionOrigin.YORDLE, ChampionClass.KNIGHT),
     PYKE(R.drawable.champion_pyke, 2, "Pyke", ChampionOrigin.PIRATE, ChampionClass.ASSASSIN),
     REKSAI(R.drawable.champion_reksai, 2, "Rek'Sai", ChampionOrigin.VOID, ChampionClass.BRAWLER),

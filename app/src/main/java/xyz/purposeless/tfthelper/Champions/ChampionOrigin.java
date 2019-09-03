@@ -8,7 +8,7 @@ public enum ChampionOrigin implements ChampionAttribute {
 	DRAGON(R.drawable.origin_dragon, "Dragon", 2),
 	EXILE(R.drawable.origin_exile, "Exile", 1),
 	GLACIAL(R.drawable.origin_glacial, "Glacial", 2, 4, 6),
-	HEXTECH(R.drawable.question_mark, "Hextech", 2, 4),
+	HEXTECH(R.drawable.origin_hextech, "Hextech", 2, 4),
 	IMPERIAL(R.drawable.origin_imperial, "Imperial", 2, 4),
 	NINJA(R.drawable.origin_ninja, "Ninja", 1, 4),
 	NOBLE(R.drawable.origin_noble, "Noble", 3, 6),

@@ -29,6 +29,7 @@ public class ChampionHolderCostFragment extends ChampionHolder {
 
     private onChampionHolderCostFragment mListener;
     private ImageView costImage;
+    private ImageView costBorderImage;
     private TextView costText;
     private LinearLayout championsLayout;
 
@@ -76,6 +77,7 @@ public class ChampionHolderCostFragment extends ChampionHolder {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        this.costBorderImage = view.findViewById(R.id.championHolderCostBorderImage);
         this.costImage = view.findViewById(R.id.championHolderCostImage);
         this.costText = view.findViewById(R.id.championHolderCost);
         this.championsLayout = view.findViewById(R.id.heldChampionsCost);
@@ -121,12 +123,16 @@ public class ChampionHolderCostFragment extends ChampionHolder {
             case 1: this.costImage.setImageAlpha(0); //transparent (no icon)
                 break;
             case 2: this.costImage.setImageResource(R.drawable.tier2);
+                    this.costBorderImage.setImageResource(R.drawable.tier_border2);
                 break;
             case 3: this.costImage.setImageResource(R.drawable.tier3);
+                this.costBorderImage.setImageResource(R.drawable.tier_border3);
                 break;
             case 4: this.costImage.setImageResource(R.drawable.tier4);
+                this.costBorderImage.setImageResource(R.drawable.tier_border4);
                 break;
             case 5: this.costImage.setImageResource(R.drawable.tier5);
+                this.costBorderImage.setImageResource(R.drawable.tier_border5);
                 break;
 
             default:
