@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	public void fabAboutClicked(View v) {
-
+		startActivity(new Intent(this, AboutUsActivity.class));
 	}
 
     public static Context getContext() {

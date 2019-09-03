@@ -123,7 +123,7 @@
     <string name="repeatingCrossbowDesc">When the wearer dies, Repeating Crossbow passes to a new ally and they gain an additional 20% Crit chance and 20% Attack Speed. This stacks with each pass of the item.</string>
     <string name="mittensDesc">Extra 10% Crit chance and 10% Dodge chance. Wearer is also a Yordle</string>
     <string name="lorgsEdgeDesc">A champion holding Lord\'s Edge can\'t hold other items except temporary ones gained by this item. Lord\'s Edge cannot be given to a champion that already holds an item. On takedown, gain a BF Sword for the remainder of the round.</string>
-    <string name="lastWhisperDesc">Attacks can\'t miss and deal True Damage equal to 5% of the target\'s ßmaximum health</string>
+    <string name="lastWhisperDesc">Attacks can\'t miss and deal True Damage equal to 5% of the target\'s maximum health</string>
 
 
     <string name="mainactivity_background_image">mainBackgroundContentDesc</string>
@@ -149,4 +149,5 @@
     <string name="itemQuizStartAgain">Start Again</string>
     <string name="detailChampionSplash">Champion splash art in detail activity</string>
     <string name="detailChampionName">Champion Name</string>
+    <string name="disclaimerText">isn’t endorsed by Riot Games and doesn\'t reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.</string>
 </resources>
