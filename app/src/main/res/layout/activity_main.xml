@@ -14,9 +14,9 @@
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginBottom="8dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -26,54 +26,65 @@
 
         <Button
             android:id="@+id/ItemsButton"
-            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
+            android:background="@drawable/transparent_bg_bordered"
             android:gravity="clip_horizontal|center|clip_vertical"
             android:onClick="itemsOnClick"
             android:text="@string/itemsButton"
-            android:textColorHighlight="#8BC34A"
-            android:textColorLink="#3C27B0"
+            android:textColor="#FFFFFF"
             android:visibility="visible" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_weight="1" />
 
         <Button
             android:id="@+id/itemsQuizButton"
-            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
+            android:background="@drawable/transparent_bg_bordered"
             android:gravity="clip_horizontal|center|clip_vertical"
             android:onClick="itemsQuizOnClick"
             android:text="Items Quiz"
-            android:textColorHighlight="#8BC34A"
-            android:textColorLink="#3C27B0"
+            android:textColor="#FFFFFF"
             android:visibility="visible" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_weight="1" />
 
         <Button
             android:id="@+id/championsBuilderButton"
-            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
+            android:background="@drawable/transparent_bg_bordered"
             android:gravity="clip_horizontal|center|clip_vertical"
             android:onClick="championBuilderOnClick"
             android:text="@string/championsButtonText"
-            android:textColorHighlight="#8BC34A"
-            android:textColorLink="#3C27B0"
+            android:textColor="#FFFFFF"
             android:visibility="visible" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_weight="1" />
 
         <Button
             android:id="@+id/championsHolderButton"
-            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
+            android:background="@drawable/transparent_bg_bordered"
             android:gravity="clip_horizontal|center|clip_vertical"
             android:onClick="championDividerOnClick"
             android:text="@string/champions_info_button_text"
-            android:textColorHighlight="#8BC34A"
-            android:textColorLink="#3C27B0"
+            android:textColor="#FFFFFF"
             android:visibility="visible" />
 
     </LinearLayout>
@@ -101,6 +112,6 @@
         android:onClick="fabAboutClicked"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="?attr/colorAccent" />
+        app:srcCompat="@android:drawable/ic_menu_help" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

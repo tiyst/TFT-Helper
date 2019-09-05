@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#1968AC</color>
+    <color name="colorPrimaryDark">#274591</color>
+    <color name="colorAccent">#4258AC</color>
+<!--    <color name="colorAccent">#D81B60</color>-->
 
-    <color name="colorGradientStart">#25D5F5</color>
-    <color name="colorGradientCenter">#1F9BD5</color>
-    <color name="colorGradientEnd">#1822D6</color>
+    <color name="colorGradientStart">#1968AC</color>
+    <color name="colorGradientCenter">#274591</color>
+    <color name="colorGradientEnd">#1C2138</color>
 
     <color name="attrColorGolden">#CF8227</color>
     <color name="attrColorNotGolden">#FFFFFF</color>
 
-    <color name="colorPurple_A400">#D500F9</color>
-    <color name="colorPurple_900">#4A148C</color>
+   <!-- <color name="colorPurple_A400">#D500F9</color>
+    <color name="colorPurple_900">#4A148C</color>-->
+
+    <color name="colorPurple_A400">#274591</color>
+    <color name="colorPurple_900">#1968AC</color>
+
+    <color name="transparent">#00B4B4B4</color>
 </resources>

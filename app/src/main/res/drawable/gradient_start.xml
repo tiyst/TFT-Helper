@@ -5,6 +5,5 @@
         android:type="linear"
         android:angle="315"
         android:startColor="@color/colorGradientStart"
-        android:centerColor="@color/colorGradientCenter"
-        android:endColor="@color/colorGradientEnd"/>
+        android:endColor="@color/colorGradientCenter"/>
 </shape>
