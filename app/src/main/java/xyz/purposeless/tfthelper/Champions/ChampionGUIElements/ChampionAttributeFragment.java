@@ -1,7 +1,6 @@
 package xyz.purposeless.tfthelper.Champions.ChampionGUIElements;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -98,7 +97,6 @@ public class ChampionAttributeFragment extends Fragment {
     }
 
     public void setGolden(boolean golden) {
-        Log.d(TAG, "setGolden: " + golden);
         if (golden) {
             this.hexImage.setAlpha(ALPHA_FULL);
         }

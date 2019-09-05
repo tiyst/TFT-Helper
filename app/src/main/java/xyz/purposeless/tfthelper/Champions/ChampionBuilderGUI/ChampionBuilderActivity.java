@@ -1,7 +1,6 @@
 package xyz.purposeless.tfthelper.Champions.ChampionBuilderGUI;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -67,13 +66,11 @@ public class ChampionBuilderActivity extends AppCompatActivity implements
 
 	@Override
 	public void onChampionInteraction(Champion champion) {
-		Log.d("Yee", "onChampionInteraction: adding champion " + champion.getName());
 		controller.addChampion(champion);
 	}
 
 	@Override
 	public void ownedChampionInteraction(Champion champion) {
-		Log.d("Yee", "onChampionInteraction: removing champion " + champion.getName());
 		controller.removeChampion(champion);
 	}
 
@@ -175,7 +172,7 @@ public class ChampionBuilderActivity extends AppCompatActivity implements
 					break;
 
 				default:
-					Log.d(TAG, "checkAttributes: You what?!");
+					throw new TFTRuntimeException("Requirement status missing in champion builder.");
 			}
 
 			checkRequirementNumbers(attr);
@@ -223,8 +220,6 @@ public class ChampionBuilderActivity extends AppCompatActivity implements
 			if (f != null) {
 				f.setImageAlpha(ChampionAttributeFragment.ALPHA_NOTFULL);
 				f.setGolden(false); //Necessary for cases when there is only one tier (Phantom, Pirate, ...)
-			} else {
-				Log.d(TAG, "transparentAttributeFragment: fragment is null " + attr.getName());
 			}
 		}
 
@@ -234,8 +229,6 @@ public class ChampionBuilderActivity extends AppCompatActivity implements
 			if (f != null) {
 				f.setGolden(false);
 				f.setImageAlpha(ChampionAttributeFragment.ALPHA_FULL);
-			} else {
-				Log.d(TAG, "notFullAttributeFragment: to unmake golden attribute not found" + attr.getName());
 			}
 		}
 
@@ -245,8 +238,6 @@ public class ChampionBuilderActivity extends AppCompatActivity implements
 			if (f != null) {
 				f.setImageAlpha(ChampionAttributeFragment.ALPHA_FULL);
 				f.setGolden(true);
-			} else {
-				Log.d(TAG, "fullAttributeFragment: to make golden attribute not found" + attr.getName());
 			}
 		}
 	}

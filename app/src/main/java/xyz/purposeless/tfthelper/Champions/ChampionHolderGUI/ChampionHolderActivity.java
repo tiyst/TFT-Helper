@@ -2,7 +2,6 @@ package xyz.purposeless.tfthelper.Champions.ChampionHolderGUI;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.RadioGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -63,9 +62,7 @@ public class ChampionHolderActivity extends AppCompatActivity implements
                 return ChampionHolder.CHOSEN_DIVIDER.ORIGIN;
 
             default:
-                //FIXME onradiobuttonclicked reacts to whole view, not just buttons
-                Log.d(TAG, "wrong button ID ->" + buttonID);
-                throw new TFTRuntimeException("Clicked radio doesn't exist (apparently)." +
+                throw new TFTRuntimeException("Clicked radio doesn't exist (apparently).\n" +
                         " Also WTF?!");
         }
 //        return null;
@@ -77,7 +74,6 @@ public class ChampionHolderActivity extends AppCompatActivity implements
 
     private void updateDivider(ChampionHolder.CHOSEN_DIVIDER clicked) {
         controller.setDividerType(clicked);
-        Log.d(TAG, "updateDivider: "+ clicked);
     }
 
     @Override

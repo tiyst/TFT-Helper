@@ -2,7 +2,6 @@ package xyz.purposeless.tfthelper.Items.ItemGUIElements;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -78,7 +77,6 @@ public class ItemBaseFragment extends Fragment {
 			TextView itemName = view.findViewById(R.id.itemBaseFragmentName);
 			itemName.setText(tftItem.getItemName());
 		} catch (NullPointerException e) {
-			Log.d(TAG, "onViewCreated: TftItemEnum not initialized");
 			e.printStackTrace();
 		}
 		super.onViewCreated(view, savedInstanceState);

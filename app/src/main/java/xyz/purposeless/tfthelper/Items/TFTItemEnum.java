@@ -120,7 +120,6 @@ public enum TFTItemEnum {
 			}
 		}
 		throw new TFTRuntimeException("Item " + text + " not found\ncode: TIE");
-//		return null;
 	}
 
 	public static TFTItemEnum combineBaseItems(TFTItemBaseEnum item1, TFTItemBaseEnum item2) {
@@ -132,7 +131,6 @@ public enum TFTItemEnum {
 				return item;
 			}
 		}
-		Log.e(TAG, "combineBaseItems: ", new Exception("why have you forsaken me?"));
 		throw new TFTRuntimeException("items can't be combined:\n" + item1.getItemName() + "\n" + item2.toString());
 	}
 

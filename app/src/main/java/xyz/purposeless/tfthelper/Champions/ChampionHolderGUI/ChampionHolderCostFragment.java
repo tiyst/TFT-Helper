@@ -2,7 +2,6 @@ package xyz.purposeless.tfthelper.Champions.ChampionHolderGUI;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +19,7 @@ import java.util.List;
 import xyz.purposeless.tfthelper.Champions.Champion;
 import xyz.purposeless.tfthelper.Champions.ChampionGUIElements.ChampionFragment;
 import xyz.purposeless.tfthelper.R;
+import xyz.purposeless.tfthelper.Utils.Exception.TFTRuntimeException;
 
 public class ChampionHolderCostFragment extends ChampionHolder {
     private static final String TAG = "ChampionHolderCostFrag";
@@ -106,7 +106,6 @@ public class ChampionHolderCostFragment extends ChampionHolder {
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        Log.d(TAG, "fillWithChampions: adding champions to id " + this.championsLayout.getId());
         for (Champion champ : champions) {
             fragmentTransaction.add(this.championCost, ChampionFragment.newInstance(champ.getName()));
         }
@@ -136,7 +135,7 @@ public class ChampionHolderCostFragment extends ChampionHolder {
                 break;
 
             default:
-                Log.d(TAG, "setCostIcon: wrong champion cost" + this.championCost);
+                throw new TFTRuntimeException("Champion cost is wrong: " + this.championCost);
         }
     }
 }

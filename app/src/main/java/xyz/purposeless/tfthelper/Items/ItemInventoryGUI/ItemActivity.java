@@ -1,7 +1,6 @@
 package xyz.purposeless.tfthelper.Items.ItemInventoryGUI;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,10 +12,10 @@ import java.util.ArrayList;
 import xyz.purposeless.tfthelper.Items.ItemGUIElements.InventoryItemFragment;
 import xyz.purposeless.tfthelper.Items.ItemGUIElements.ItemBaseFragment;
 import xyz.purposeless.tfthelper.Items.ItemGUIElements.ItemCombinedFragment;
-import xyz.purposeless.tfthelper.Utils.Exception.TFTRuntimeException;
 import xyz.purposeless.tfthelper.Items.TFTItemBaseEnum;
 import xyz.purposeless.tfthelper.Items.TFTItemEnum;
 import xyz.purposeless.tfthelper.R;
+import xyz.purposeless.tfthelper.Utils.Exception.TFTRuntimeException;
 
 public class ItemActivity extends AppCompatActivity implements ItemBaseFragment.TFTItemListener
 		, ItemCombinedFragment.CombinedItemInteractionListener
@@ -160,8 +159,6 @@ public class ItemActivity extends AppCompatActivity implements ItemBaseFragment.
 				FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 				transaction.remove(f);
 				transaction.commitNow();
-			} else {
-				Log.d(TAG, "removeInventoryFragment: SOMETHING'S WRONG!!");
 			}
 		}
 	}
