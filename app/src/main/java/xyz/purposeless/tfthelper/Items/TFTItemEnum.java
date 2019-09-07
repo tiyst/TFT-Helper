@@ -1,7 +1,6 @@
 package xyz.purposeless.tfthelper.Items;
 
 import android.content.Context;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Arrays;

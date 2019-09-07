@@ -29,21 +29,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Class" />
+            android:text="Class"
+            android:buttonTint="@color/attrColorNotGolden"/>
 
         <RadioButton
             android:id="@+id/radioButtonOrigin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Origin" />
+            android:text="Origin"
+            android:buttonTint="@color/attrColorNotGolden"/>
 
         <RadioButton
             android:id="@+id/radioButtonCost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Cost" />
+            android:text="Cost"
+            android:buttonTint="@color/attrColorNotGolden"/>
     </RadioGroup>
 
     <ScrollView
