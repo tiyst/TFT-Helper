@@ -7,6 +7,9 @@ import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import xyz.purposeless.tfthelper.Champions.Champion;
 import xyz.purposeless.tfthelper.Champions.ChampionClass;
 import xyz.purposeless.tfthelper.Champions.ChampionGUIElements.ChampionAttributeFragment;
@@ -20,7 +23,7 @@ public class ChampionDetailActivity extends AppCompatActivity {
 
 
 	private Champion chosenChampion;
-	private ImageView champImage;
+	private ImageView champSplash;
 	private HexagonMaskView champIcon;
 	private LinearLayout champAttrs;
 
@@ -30,7 +33,12 @@ public class ChampionDetailActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_champion_detail);
 
-		this.champImage = findViewById(R.id.detailChampionSplash);
+		AdView mAdView = findViewById(R.id.championDetailAdView);
+		AdRequest adRequest = new AdRequest.Builder().build();
+		mAdView.loadAd(adRequest);
+
+
+		this.champSplash = findViewById(R.id.detailChampionSplash);
 		this.champIcon = findViewById(R.id.detailChampionIcon);
 		this.champAttrs = findViewById(R.id.detailChampionAttributes);
 

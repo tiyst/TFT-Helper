@@ -43,7 +43,7 @@ public class ChampionBuilderActivity extends AppCompatActivity implements
 			getSupportActionBar().hide();
 		}
 
-		AdView mAdView = findViewById(R.id.championBuilderAdView);
+		AdView mAdView = findViewById(R.id.championDetailAdView);
 		AdRequest adRequest = new AdRequest.Builder().build();
 		mAdView.loadAd(adRequest);
 

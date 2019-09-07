@@ -13,6 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -65,6 +68,11 @@ public class ItemQuizActivity extends AppCompatActivity implements ItemBaseFragm
 		if (getSupportActionBar() != null) {
 			getSupportActionBar().hide();
 		}
+
+
+		AdView mAdView = findViewById(R.id.itemQuizAdView);
+		AdRequest adRequest = new AdRequest.Builder().build();
+		mAdView.loadAd(adRequest);
 
 		this.itemsToGuess = TFTItemEnum.getActualValues();
 		this.health = 3;

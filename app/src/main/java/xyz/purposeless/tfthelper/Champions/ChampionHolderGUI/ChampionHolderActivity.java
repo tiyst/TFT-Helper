@@ -9,7 +9,6 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,9 +38,9 @@ public class ChampionHolderActivity extends AppCompatActivity implements
             getSupportActionBar().hide();
         }
 
-        MobileAds.initialize(this);
+//        MobileAds.initialize(this);
 
-        AdView mAdView = findViewById(R.id.championBuilderAdView);
+        AdView mAdView = findViewById(R.id.championHolderAdView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
@@ -49,7 +48,6 @@ public class ChampionHolderActivity extends AppCompatActivity implements
         this.radioGroup = findViewById(R.id.groupingTypeRadioButtons);
         this.radioGroup.setOnCheckedChangeListener((group, checkedId) -> updateDivider(checkedId));
         this.controller = new HolderController(getClickedDivider(radioGroup.getCheckedRadioButtonId()));
-//        updateDivider(this.radioGroup.getCheckedRadioButtonId());
     }
 
     private ChampionHolder.CHOSEN_DIVIDER getClickedDivider(int buttonID) {
@@ -65,7 +63,6 @@ public class ChampionHolderActivity extends AppCompatActivity implements
                 throw new TFTRuntimeException("Clicked radio doesn't exist (apparently).\n" +
                         " Also WTF?!");
         }
-//        return null;
     }
 
     private void updateDivider(int clickedID) {

@@ -11,6 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="200dp"
         android:contentDescription="@string/detailChampionSplash"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -27,6 +28,7 @@
         android:textColor="@android:color/background_light"
         android:textSize="24sp"
         android:textStyle="italic"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="@+id/detailChampionSplash"
         app:layout_constraintTop_toTopOf="@+id/detailChampionSplash" />
 
@@ -43,11 +45,10 @@
 
     <LinearLayout
         android:id="@+id/detailChampionAttributes"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layoutDirection="rtl"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="@+id/detailChampionIcon"
         app:layout_constraintEnd_toEndOf="parent"
@@ -57,7 +58,7 @@
         android:id="@+id/fragment"
         android:name="xyz.purposeless.tfthelper.Champions.ChampionHolderGUI.UltimateSpellFragment"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
@@ -67,7 +68,7 @@
 
 
     <com.google.android.gms.ads.AdView
-        android:id="@+id/championBuilderAdView"
+        android:id="@+id/championDetailAdView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -77,5 +78,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/waitingForAPI"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/championDetailAdView"
+        app:layout_constraintEnd_toEndOf="@+id/fragment"
+        app:layout_constraintStart_toStartOf="@+id/fragment"
+        app:layout_constraintTop_toBottomOf="@+id/detailChampionSplash" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

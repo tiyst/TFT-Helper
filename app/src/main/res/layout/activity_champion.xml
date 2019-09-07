@@ -28,11 +28,11 @@
     <!--    TODO Fix centering -->
     <ScrollView
         android:id="@+id/allChampions"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:scrollbars="none"
-        android:requiresFadingEdge="vertical"
         android:fadingEdgeLength="100dp"
+        android:requiresFadingEdge="vertical"
+        android:scrollbars="none"
         app:layout_constraintBottom_toTopOf="@+id/ownedAttributes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,9 +40,8 @@
 
         <androidx.gridlayout.widget.GridLayout
             android:id="@+id/gridChampLayout"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|fill_horizontal"
             app:alignmentMode="alignMargins"
             app:columnCount="4"
             app:rowCount="4">
@@ -54,7 +53,7 @@
         android:id="@+id/ownedAttributes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/championBuilderAdView"
+        app:layout_constraintBottom_toTopOf="@id/championDetailAdView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -66,7 +65,7 @@
     </HorizontalScrollView>
 
     <com.google.android.gms.ads.AdView
-        android:id="@+id/championBuilderAdView"
+        android:id="@+id/championDetailAdView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

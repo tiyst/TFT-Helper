@@ -7,6 +7,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.util.ArrayList;
 
 import xyz.purposeless.tfthelper.Items.ItemGUIElements.InventoryItemFragment;
@@ -31,6 +34,11 @@ public class ItemActivity extends AppCompatActivity implements ItemBaseFragment.
 		if (getSupportActionBar() != null) {
 			getSupportActionBar().hide();
 		}
+
+		AdView mAdView = findViewById(R.id.itemBuilderAdView);
+		AdRequest adRequest = new AdRequest.Builder().build();
+		mAdView.loadAd(adRequest);
+
 		itemController = new ItemController();
 		drawBaseItems();
 	}
