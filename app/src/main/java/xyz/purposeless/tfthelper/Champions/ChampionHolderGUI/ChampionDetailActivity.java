@@ -62,8 +62,8 @@ public class ChampionDetailActivity extends AppCompatActivity {
 		}
 
 		//Images
-//		this.champIcon.setImageResource(); //TODO Pull from net or include?
 		this.champIcon.setImageResource(this.chosenChampion.getChampionImageID());
+		this.champSplash.setImageResource(pullDrawableID(this.chosenChampion));
 
 		//Attributes
 		FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -79,5 +79,10 @@ public class ChampionDetailActivity extends AppCompatActivity {
 			transaction.add(this.champAttrs.getId(), f);
 		}
 		transaction.commit();
+	}
+
+	private int pullDrawableID(Champion champ) {
+		String processed = "splash_" + champ.name().toLowerCase();
+		return getResources().getIdentifier(processed, "drawable", getPackageName());
 	}
 }
