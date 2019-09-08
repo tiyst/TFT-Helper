@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_animation"
+    android:background="@drawable/gradient_static_background"
     tools:context=".Champions.ChampionHolderGUI.ChampionHolderActivity">
 
     <RadioGroup
@@ -29,24 +29,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:buttonTint="@color/attrColorNotGolden"
             android:text="Class"
-            android:buttonTint="@color/attrColorNotGolden"/>
+            android:textColor="#FFFFFF" />
 
         <RadioButton
             android:id="@+id/radioButtonOrigin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:buttonTint="@color/attrColorNotGolden"
             android:text="Origin"
-            android:buttonTint="@color/attrColorNotGolden"/>
+            android:textColor="#FFFFFF" />
 
         <RadioButton
             android:id="@+id/radioButtonCost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:buttonTint="@color/attrColorNotGolden"
             android:text="Cost"
-            android:buttonTint="@color/attrColorNotGolden"/>
+            android:textColor="#FFFFFF" />
     </RadioGroup>
 
     <ScrollView

@@ -30,6 +30,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/itemname"
         android:textAlignment="center"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="@+id/itemBaseFragmentImage"
         app:layout_constraintStart_toStartOf="@+id/itemBaseFragmentImage"
         app:layout_constraintTop_toBottomOf="@+id/itemBaseFragmentImage" />

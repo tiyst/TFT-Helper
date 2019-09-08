@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#1968AC</color>
-    <color name="colorPrimaryDark">#274591</color>
-    <color name="colorAccent">#4258AC</color>
+    <color name="colorPrimary">#05405D</color>
+    <color name="colorPrimaryDark">#051B30</color>
+    <color name="colorAccent">#03A8C8</color>
 <!--    <color name="colorAccent">#D81B60</color>-->
 
-    <color name="colorGradientStart">#1968AC</color>
-    <color name="colorGradientCenter">#274591</color>
-    <color name="colorGradientEnd">#1C2138</color>
+    <color name="colorGradientStart">#03A8C8</color>
+    <color name="colorGradientCenter">#05405D</color>
+    <color name="colorGradientEnd">#051B30</color>
 
     <color name="attrColorGolden">#CF8227</color>
     <color name="attrColorNotGolden">#FFFFFF</color>

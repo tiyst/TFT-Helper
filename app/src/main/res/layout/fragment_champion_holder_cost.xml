@@ -7,6 +7,7 @@
     tools:context=".Champions.ChampionHolderGUI.ChampionHolderCostFragment">
 
     <HorizontalScrollView
+        android:id="@+id/horizontalScrollView2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -35,31 +36,35 @@
         android:id="@+id/goldIcon"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
         android:src="@drawable/gold_k_icon"
-        app:layout_constraintBottom_toBottomOf="@+id/championHolderCostImage"
-        app:layout_constraintEnd_toStartOf="@+id/championHolderCostImage"
-        app:layout_constraintTop_toTopOf="@+id/championHolderCostImage" />
+        app:layout_constraintBottom_toBottomOf="@+id/championHolderCost"
+        app:layout_constraintStart_toEndOf="@+id/championHolderCost" />
 
     <ImageView
         android:id="@+id/championHolderCostImage"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
         android:contentDescription="@string/champion_holder_cost_image"
         android:src="?attr/colorAccent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/championHolderCost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
         android:text="Cost text"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/goldIcon"
-        app:layout_constraintEnd_toStartOf="@+id/goldIcon" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="@+id/championHolderCostImage"
+        app:layout_constraintStart_toEndOf="@+id/championHolderCostImage"
+        app:layout_constraintTop_toTopOf="@+id/championHolderCostImage"
+        app:layout_constraintVertical_bias="0.75" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

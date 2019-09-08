@@ -25,6 +25,7 @@
         android:layout_marginStart="16dp"
         android:text="Attribute Name"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="@+id/champHolderAttrImage"

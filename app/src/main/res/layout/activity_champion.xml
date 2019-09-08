@@ -5,7 +5,7 @@
     android:id="@+id/championParentLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_animation"
+    android:background="@drawable/gradient_static_background"
     tools:context=".Champions.ChampionBuilderGUI.ChampionBuilderActivity">
 
     <HorizontalScrollView

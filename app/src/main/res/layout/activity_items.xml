@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/gradient_animation"
+    android:background="@drawable/gradient_static_background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Items.ItemInventoryGUI.ItemActivity">
@@ -32,6 +32,7 @@
         android:layout_marginTop="16dp"
         android:text="@string/inventoryText"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollItems" />
@@ -65,6 +66,8 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:scrollbars="none"
+        android:requiresFadingEdge="vertical"
+        android:fadingEdgeLength="100dp"
         app:layout_constraintBottom_toTopOf="@+id/itemBuilderAdView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

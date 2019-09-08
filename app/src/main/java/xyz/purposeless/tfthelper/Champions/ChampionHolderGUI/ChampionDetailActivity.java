@@ -43,10 +43,6 @@ public class ChampionDetailActivity extends AppCompatActivity {
 		this.champAttrs = findViewById(R.id.detailChampionAttributes);
 
 		processChampion(getIntent().getStringExtra(ChampionHolderActivity.CHAMP_NAME_TAG));
-
-
-
-
 	}
 
 	private void processChampion(String champName) {

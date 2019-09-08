@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_animation"
+    android:background="@drawable/gradient_static_background"
     tools:context=".Items.ItemQuizGUI.ItemQuizActivity">
 
     <TextView
@@ -17,6 +17,7 @@
         android:fontFamily="sans-serif-black"
         android:text="Score: -1"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -86,6 +87,7 @@
             android:layout_height="wrap_content"
             android:text="Combined Item Name"
             android:textAlignment="center"
+            android:textColor="#FFFFFF"
             android:textSize="18sp" />
 
         <Space
@@ -94,8 +96,8 @@
 
         <ImageView
             android:id="@+id/combinedItemImage"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             app:srcCompat="?attr/colorAccent" />
     </LinearLayout>
 
@@ -129,8 +131,8 @@
 
         <ImageView
             android:id="@+id/baseItemOneImage"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             app:srcCompat="?attr/colorAccent" />
 
         <Space
@@ -139,8 +141,8 @@
 
         <ImageView
             android:id="@+id/baseItemTwoImage"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             app:srcCompat="?attr/colorAccent" />
     </LinearLayout>
 
