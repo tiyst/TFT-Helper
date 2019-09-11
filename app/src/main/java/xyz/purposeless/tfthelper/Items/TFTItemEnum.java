@@ -113,7 +113,7 @@ public enum TFTItemEnum {
 
 
 	public static TFTItemEnum fromString(String text) {
-		for (TFTItemEnum item : TFTItemEnum.values()) {
+		for (TFTItemEnum item : TFTItemEnum.getActualValues()) {
 			if (item.getItemName().equals(text)) {
 				return item;
 			}
@@ -123,7 +123,7 @@ public enum TFTItemEnum {
 
 	public static TFTItemEnum combineBaseItems(TFTItemBaseEnum item1, TFTItemBaseEnum item2) {
 		TFTItemBaseEnum[] placeholderBase;
-		for (TFTItemEnum item : TFTItemEnum.values()) {
+		for (TFTItemEnum item : TFTItemEnum.getActualValues()) {
 			placeholderBase = item.getBaseItems();
 			if ((item1 == placeholderBase[0] && item2 == placeholderBase[1])
 			|| (item2 == placeholderBase[0] && item1 == placeholderBase[1])) {

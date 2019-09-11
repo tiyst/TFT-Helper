@@ -31,6 +31,7 @@ public enum Champion {
     GRAVES(R.drawable.champion_graves, 1, "Graves", ChampionOrigin.PIRATE, ChampionClass.GUNSLINGER),
     JAYCE(R.drawable.champion_jayce, 2, "Jayce", ChampionOrigin.HEXTECH, ChampionClass.SHAPESHIFTER),
     JINX(R.drawable.champion_jinx, 4, "Jinx", ChampionOrigin.HEXTECH, ChampionClass.GUNSLINGER),
+    KAISA(R.drawable.champion_kaisa, 5, "Kai'sa", ChampionOrigin.VOID, ChampionClass.RANGER, ChampionClass.ASSASSIN),
     KARTHUS(R.drawable.champion_karthus, 5, "Karthus", ChampionOrigin.PHANTOM, ChampionClass.SORCERER),
     KASSADIN(R.drawable.champion_kassadin, 1, "Kassadin", ChampionOrigin.VOID, ChampionClass.SORCERER),
     KATARINA(R.drawable.champion_katarina, 3, "Katarina", ChampionOrigin.IMPERIAL, ChampionClass.ASSASSIN),
