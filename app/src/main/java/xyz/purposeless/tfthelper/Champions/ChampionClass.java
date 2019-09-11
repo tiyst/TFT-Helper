@@ -4,7 +4,7 @@ import xyz.purposeless.tfthelper.R;
 
 public enum ChampionClass implements ChampionAttribute {
 
-    ASSASSIN(R.drawable.class_assassin, "Assassin", 3,6),
+    ASSASSIN(R.drawable.class_assassin, "Assassin", 3,6,9),
     BLADEMASTER(R.drawable.class_blademaster, "Blademaster", 3,6,9),
     BRAWLER(R.drawable.class_brawler, "Brawler", 2,4),
     ELEMENTALIST(R.drawable.class_elementalist, "Elementalist", 3),
@@ -13,7 +13,7 @@ public enum ChampionClass implements ChampionAttribute {
     KNIGHT(R.drawable.class_knight, "Knight", 2,4,6),
     RANGER(R.drawable.class_ranger, "Ranger", 2,4),
     SHAPESHIFTER(R.drawable.class_shapeshifter, "Shapeshifter", 3, 6),
-    SORCERER(R.drawable.class_sorcerer, "Sorcerer", 3,6);
+    SORCERER(R.drawable.class_sorcerer, "Sorcerer", 3,6,9);
 
     private int iconID;
     private String className;

@@ -38,7 +38,6 @@ public class ChampionHolderActivity extends AppCompatActivity implements
             getSupportActionBar().hide();
         }
 
-//        MobileAds.initialize(this);
 
         AdView mAdView = findViewById(R.id.championHolderAdView);
         AdRequest adRequest = new AdRequest.Builder().build();

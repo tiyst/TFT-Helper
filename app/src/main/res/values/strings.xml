@@ -1,5 +1,5 @@
 <resources>
-    <string name="currentPatch">Patch 9.17</string>
+    <string name="currentPatch">Patch 9.18</string>
     <string name="app_name">TFT Guide: Items &amp; Champions</string>
     <string name="itemsButton">Items</string>
     <string name="championsButtonText">Champion builder</string>
